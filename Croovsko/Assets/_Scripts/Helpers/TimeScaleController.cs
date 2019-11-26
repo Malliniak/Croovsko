@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class TimeScaleController
 {
-    public float timeScale { get; private set; }
+    public float TimeScale { get; private set; }
 
-    public float deltaTime => Time.deltaTime;
+    public float DeltaTime => Time.deltaTime;
 
     public TimeScaleController()
     {
-        timeScale = Time.timeScale;
+        TimeScale = Time.timeScale;
     }
 
     public void SetTimeScale(float scale)
     {
         Time.timeScale = scale;
-        timeScale = Time.timeScale;
+        TimeScale = Time.timeScale;
     }
     
     public IEnumerator ScaleTimeOverTime(float start, float end, float time) //not in Start or Update

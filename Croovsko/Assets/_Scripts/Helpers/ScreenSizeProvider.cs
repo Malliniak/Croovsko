@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ScreenSizeProvider 
 {
-    public float screenWidth { get; }
-    public float screenHeight { get; }
-    public float screenHalfWidth { get; }
-    public float screenHalfHeight { get; }
+    public float ScreenWidth { get; }
+    public float ScreenHeight { get; }
+    public float ScreenHalfWidth { get; }
+    public float ScreenHalfHeight { get; }
 
     public ScreenSizeProvider()
     {
-        screenWidth = Screen.width;
-        screenHeight = Screen.height;
-        screenHalfHeight = screenHeight / 2;
-        screenHalfWidth = screenWidth / 2;
+        ScreenWidth = Screen.width;
+        ScreenHeight = Screen.height;
+        ScreenHalfHeight = ScreenHeight / 2;
+        ScreenHalfWidth = ScreenWidth / 2;
         
-        Debug.Log($"Screen width: {screenWidth}");
+        Debug.Log($"Screen width: {ScreenWidth}");
     }
 }

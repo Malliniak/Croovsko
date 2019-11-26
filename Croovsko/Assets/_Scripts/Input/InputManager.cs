@@ -11,13 +11,13 @@ public class InputManager : MonoBehaviour
     public GameEvent ScreenWithNoInput;
 
     [SerializeField]
-    private Vector2Variable mousePosition;
+    private Vector2Variable _mousePosition;
 
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            mousePosition.SetValue(Input.mousePosition);
+            _mousePosition.SetValue(Input.mousePosition);
             ScreenHold.Raise();
         }
         
