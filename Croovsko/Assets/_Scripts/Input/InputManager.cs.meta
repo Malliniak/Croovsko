@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e0a373cdca2584102a0713f9bd3903c9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ScreenTouchUp: {fileID: 11400000, guid: 3bb4d33d84e134aaa80417853d57a04e, type: 2}
+  - ScreenHold: {instanceID: 0}
+  - ScreenWithNoInput: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

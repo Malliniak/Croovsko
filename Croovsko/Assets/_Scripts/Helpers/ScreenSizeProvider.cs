@@ -15,5 +15,7 @@ public class ScreenSizeProvider
         screenHeight = Screen.height;
         screenHalfHeight = screenHeight / 2;
         screenHalfWidth = screenWidth / 2;
+        
+        Debug.Log($"Screen width: {screenWidth}");
     }
 }
