@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class FloatReference: Reference<float>
+public class IntReference: Reference<int>
 {
-    public FloatVariable Variable;
-    public float Value
+    public IntVariable Variable;
+    public int Value
     {
         get { return UseConstant ? ConstantValue : Variable.Value; }
     }

@@ -14,14 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelID: 0
   MaxBellsToCollect:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
-  BellsCollected:
-    UseConstant: 1
+    Variable: {fileID: 11400000, guid: 6aa778efa29404d63999deabdede2342, type: 2}
+  HighestBellsCollected:
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 8a4a395d3ddb04a06a91360afcde7295, type: 2}
+  BellsCollectedDuringRuntime:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: c82dc3f20c81a4546804217819955734, type: 2}
   PointsCollected:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 36279347685a44921a70ff3c5fb89e17, type: 2}
+  HighestPointsCollected:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: ef788d57d6bf244a8a9f3b730481a62f, type: 2}

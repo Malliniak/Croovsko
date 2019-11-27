@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a39ab17e6f8846689e539909a449829, type: 3}
   m_Name: Lvl0MaxBellsToCollect
   m_EditorClassIdentifier: 
-  DeveloperDescription: 
-  Value: 0
+  DeveloperDescription: Max Bells to collect on Lvl
+  Value: 3

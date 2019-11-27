@@ -1,4 +1,10 @@
-$HEADER$namespace $NAMESPACE$
+using UnityEditor;
+
+namespace _Scripts.Editor
 {
-  public class $CLASS$ {$END$}
+    [CustomPropertyDrawer(typeof(IntReference))]
+    public class IntPropertyDrawer : ReferencePropertyDrawer
+    {
+        
+    }
 }

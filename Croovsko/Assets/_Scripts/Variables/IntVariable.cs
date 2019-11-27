@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class FloatVariable : BaseVariable<float>
+public class IntVariable : BaseVariable<int>
 {
-    public void AddToValue(float amount)
+    public void AddToValue(int amount)
     {
         Value += amount;
     }
 
-    public void AddToValue(FloatVariable amount)
+    public void AddToValue(IntVariable amount)
     {
         Value += amount.Value;
     }

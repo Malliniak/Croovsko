@@ -1,4 +1,10 @@
-$HEADER$namespace $NAMESPACE$
+using UnityEditor;
+
+namespace _Scripts.Editor
 {
-  public class $CLASS$ {$END$}
+    [CustomPropertyDrawer(typeof(Vector2Reference))]
+    public class Vector2PropertyDrawer: ReferencePropertyDrawer
+    {
+        
+    }
 }

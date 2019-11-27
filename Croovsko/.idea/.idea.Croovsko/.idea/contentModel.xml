@@ -13,6 +13,9 @@
           </e>
           <e p="Editor" t="Include">
             <e p="CustomPropertyDrawer.cs" t="Include" />
+            <e p="FloatReferenceDrawer.cs" t="Include" />
+            <e p="IntPropertyDrawer.cs" t="Include" />
+            <e p="Vector2PropertyDrawer.cs" t="Include" />
           </e>
           <e p="Events" t="Include">
             <e p="GameEvent.cs" t="Include" />
@@ -27,6 +30,10 @@
           <e p="Input" t="Include">
             <e p="InputManager.cs" t="Include" />
           </e>
+          <e p="Levels" t="Include">
+            <e p="LevelManager.cs" t="Include" />
+            <e p="LevelState.cs" t="Include" />
+          </e>
           <e p="Movement" t="Include">
             <e p="LeftRightController.cs" t="Include" />
           </e>
@@ -34,6 +41,8 @@
             <e p="BaseVariable.cs" t="Include" />
             <e p="FloatReference.cs" t="Include" />
             <e p="FloatVariable.cs" t="Include" />
+            <e p="IntReference.cs" t="Include" />
+            <e p="IntVariable.cs" t="Include" />
             <e p="Reference.cs" t="Include" />
             <e p="Vector2Reference.cs" t="Include" />
             <e p="Vector2Variable.cs" t="Include" />
