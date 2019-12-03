@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a31b89f92109435f99b61bfb1d361e9, type: 3}
+  m_Name: LvL0State
+  m_EditorClassIdentifier: 
+  LevelID: 0
+  MaxBellsToCollect:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 6aa778efa29404d63999deabdede2342, type: 2}
+  HighestBellsCollected:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 8a4a395d3ddb04a06a91360afcde7295, type: 2}
+  BellsCollectedDuringRuntime:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: c82dc3f20c81a4546804217819955734, type: 2}
+  PointsCollected:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 36279347685a44921a70ff3c5fb89e17, type: 2}
+  HighestPointsCollected:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: ef788d57d6bf244a8a9f3b730481a62f, type: 2}

@@ -767,14 +767,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913087448e529498ab9d15b45c09027a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mousePos:
+  _mousePos:
     UseConstant: 0
     ConstantValue: {x: 0, y: 0}
     Variable: {fileID: 11400000, guid: 5cd202db9ec6940619920f7a10e455e6, type: 2}
-  _holdTimer: 0
   _holdToActivate: 0.25
-  slowMotionValue: 0.196
-  joystick: {fileID: 1707818648}
+  _slowMotionValue: 0.196
+  Joystick: {fileID: 1707818648}
 --- !u!114 &738863174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757424356}
   - component: {fileID: 757424355}
+  - component: {fileID: 757424357}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -865,7 +865,7 @@ MonoBehaviour:
   ScreenTouchUp: {fileID: 11400000, guid: 3bb4d33d84e134aaa80417853d57a04e, type: 2}
   ScreenHold: {fileID: 11400000, guid: 142dc459bdd894f40a1e5b763164bf0f, type: 2}
   ScreenWithNoInput: {fileID: 11400000, guid: 57a205ce0e5254e339b961c6e3bdb0e2, type: 2}
-  mousePosition: {fileID: 11400000, guid: 5cd202db9ec6940619920f7a10e455e6, type: 2}
+  _mousePosition: {fileID: 11400000, guid: 5cd202db9ec6940619920f7a10e455e6, type: 2}
 --- !u!4 &757424356
 Transform:
   m_ObjectHideFlags: 0
@@ -880,6 +880,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &757424357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757424354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0569af35722614390b87abe1e68297fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelState: {fileID: 11400000, guid: 05a067587e93647a181372d9329ca900, type: 2}
 --- !u!1 &817150979
 GameObject:
   m_ObjectHideFlags: 0
