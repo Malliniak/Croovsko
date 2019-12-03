@@ -17,7 +17,7 @@ public static class ExtensionMethods
     {
         float _rot_z = Mathf.Atan2(lookVec.y, lookVec.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Lerp(transform.localRotation,
-                   Quaternion.Euler(0, 0, 45 * Mathf.Sign(lookVec.x)), Time.deltaTime * lerpTime);
+                   Quaternion.Euler(new Vector3(0, 0, _rot_z + 90f)), Time.deltaTime * lerpTime);
     }
     
     public static bool GetAssetFile<T>(out T asset, string filter = "DefaultAsset l:noLabel t:noType") where T : ScriptableObject
