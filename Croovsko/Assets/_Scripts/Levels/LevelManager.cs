@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private LevelState LevelState;
+    private LevelState _levelState;
 
+    private void Awake()
+    {
+        _levelState = LevelState.GetLevelStateAsset();
+    }
 }

@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0569af35722614390b87abe1e68297fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelState: {fileID: 11400000, guid: 05a067587e93647a181372d9329ca900, type: 2}
+  LevelState: {fileID: 0}
 --- !u!1 &817150979
 GameObject:
   m_ObjectHideFlags: 0
