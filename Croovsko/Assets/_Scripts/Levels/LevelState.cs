@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Helpers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu]
 public class LevelState : ScriptableObject
 {
-    public int LevelID;
+    public string LevelID;
     public int MaxBellsToCollect;
 
     public int HighestBellsCollected
@@ -36,7 +37,7 @@ public class LevelState : ScriptableObject
     {
         var id = SceneManager.GetActiveScene().name;
         LevelState LevelState;
-        ExtensionMethods.GetAssetFile(out LevelState, $"{id}State");
+        AssetLoader.GetAssetFile(out LevelState, $"Lvl{id}State");
         Debug.Log(LevelState);
         return LevelState;
     }
@@ -53,5 +54,4 @@ public class LevelState : ScriptableObject
             : HighestPointsCollected;
         HighestPointsCollected = points;
     }
-    
 }

@@ -19,24 +19,4 @@ public static class ExtensionMethods
         transform.rotation = Quaternion.Lerp(transform.localRotation,
                    Quaternion.Euler(new Vector3(0, 0, _rot_z + 90f)), Time.deltaTime * lerpTime);
     }
-    
-    public static bool GetAssetFile<T>(out T asset, string filter = "DefaultAsset l:noLabel t:noType") where T : ScriptableObject
-    {
-        bool found = false;
-        string[] guids = AssetDatabase.FindAssets(filter);
-        if(guids.Length > 0)
-        {
-            found = true;
-            string assetPath = AssetDatabase.GUIDToAssetPath(guids[0]); // only one loaded
-            asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(T)) as T;
-        }
-        else
-        {
-            asset = null;
-            Debug.LogWarning("There is not a Level State File for this scene");
-        }
-
-
-        return found;
-    }
 }
