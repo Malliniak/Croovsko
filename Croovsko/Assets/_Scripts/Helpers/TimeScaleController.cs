@@ -7,7 +7,7 @@ public class TimeScaleController
     public float TimeScale
     {
         get => Time.timeScale;
-        private set { }
+        private set {}
     }
 
     public float DeltaTime => Time.deltaTime;
@@ -20,7 +20,6 @@ public class TimeScaleController
     public void SetTimeScale(float scale)
     {
         Time.timeScale = scale;
-        TimeScale = Time.timeScale;
     }
     
     public IEnumerator ScaleTimeOverTime(float start, float end, float time) //not in Start or Update

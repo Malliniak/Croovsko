@@ -14,7 +14,7 @@ public class LeftRightController : MonoBehaviour
     private Vector2Reference _mousePos;
     private Rigidbody2D _rb2D;
 
-    [Header("Joystick and SloMo")][SerializeField]
+    [Header("Joystick and SloMo")]
     private float _holdTimer;
     [SerializeField] private float _holdToActivate = 1f;
     [SerializeField][Range(0.1f, 1f)] private float _slowMotionValue;
@@ -33,6 +33,11 @@ public class LeftRightController : MonoBehaviour
 
     private void Start()
     {
+        SetSlowMotionCoroutine();
+    }
+
+    private void SetSlowMotionCoroutine()
+    {
         _slowMotionCoroutine = _timeScaleController.ScaleTimeOverTime(_timeScaleController.TimeScale, _slowMotionValue, 0.5f);
     }
 
@@ -46,8 +51,7 @@ public class LeftRightController : MonoBehaviour
             Debug.Log("ADDING AFTER JOYSTICK");
             AddForceToPlayer();
             StopCoroutine(_slowMotionCoroutine);
-            _slowMotionCoroutine =
-                _timeScaleController.ScaleTimeOverTime(_timeScaleController.TimeScale, _slowMotionValue, 0.5f);
+            SetSlowMotionCoroutine();
         }
         else
         {
@@ -84,7 +88,7 @@ public class LeftRightController : MonoBehaviour
             _forceDirection.x = lookVec.x > 0 ? -3 : 3;
 
             Joystick.background.gameObject.SetActive(true);
-            if (Time.timeScale >= 1 )
+            if (_timeScaleController.TimeScale >= 1 )
             {
                 StartCoroutine(_slowMotionCoroutine);
             }
