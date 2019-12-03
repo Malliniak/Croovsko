@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu]
 public class LevelState : ScriptableObject
@@ -31,7 +32,16 @@ public class LevelState : ScriptableObject
         SaveLevelState();
     }
 
-    private void SaveLevelState()
+    public static LevelState GetLevelStateAsset()
+    {
+        var id = SceneManager.GetActiveScene().name;
+        LevelState LevelState;
+        ExtensionMethods.GetAssetFile(out LevelState, $"{id}State");
+        Debug.Log(LevelState);
+        return LevelState;
+    }
+
+    public void SaveLevelState()
     {
         int bells = BellsCollectedDuringRuntime > HighestBellsCollected
             ? BellsCollectedDuringRuntime
