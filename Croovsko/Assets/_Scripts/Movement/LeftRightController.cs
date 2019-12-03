@@ -9,7 +9,7 @@ public class LeftRightController : MonoBehaviour
     private ScreenSizeProvider _screenSizeProvider;
     private TimeScaleController _timeScaleController;
     
-    private Vector2 _forceDirection = new Vector2(3f, 6f);
+    [SerializeField]private Vector2 _forceDirection = new Vector2(3f, 6f);
     [SerializeField] private int slowMotionForce = 10;
     [SerializeField]
     private Vector2Reference _mousePos;
@@ -56,7 +56,7 @@ public class LeftRightController : MonoBehaviour
         }
         else
         {
-            transform.LookAt2d(new Vector3(Mathf.Sign(-_forceDirection.x), Mathf.Sign(_forceDirection.y), 0), 15f);
+            transform.LookAt2d(-_forceDirection, 15f);
         }
 
         Joystick.background.gameObject.SetActive(false);
