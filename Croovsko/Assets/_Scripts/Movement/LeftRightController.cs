@@ -10,6 +10,7 @@ public class LeftRightController : MonoBehaviour
     private TimeScaleController _timeScaleController;
     
     private Vector2 _forceDirection = new Vector2(3f, 6f);
+    [SerializeField] private int slowMotionForce = 10;
     [SerializeField]
     private Vector2Reference _mousePos;
     private Rigidbody2D _rb2D;
@@ -68,6 +69,7 @@ public class LeftRightController : MonoBehaviour
         {
             Debug.Log("ADDING NORMAL");
             _forceDirection.x = _mousePos.Value.x > _screenSizeProvider.ScreenWidth / 2 ? 3 : -3;
+            _forceDirection.y = 6;
             AddForceToPlayer();
         }
     }
@@ -85,7 +87,7 @@ public class LeftRightController : MonoBehaviour
         {
             var lookVec = new Vector3(Joystick.input.x, Joystick.input.y, 0);
             transform.LookAt2d(lookVec);
-            _forceDirection.x = lookVec.x > 0 ? -3 : 3;
+            _forceDirection = lookVec.normalized * -slowMotionForce;
 
             Joystick.background.gameObject.SetActive(true);
             if (_timeScaleController.TimeScale >= 1 )
