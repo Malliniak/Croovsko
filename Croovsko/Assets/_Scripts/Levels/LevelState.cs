@@ -7,12 +7,25 @@ using UnityEngine;
 public class LevelState : ScriptableObject
 {
     public int LevelID;
-    public IntReference MaxBellsToCollect;
-    public IntReference HighestBellsCollected;
-    public IntReference BellsCollectedDuringRuntime;
-    public IntReference PointsCollected;
-    public IntReference HighestPointsCollected;
+    public int MaxBellsToCollect;
 
+    public int HighestBellsCollected
+    {
+        get;
+        private set;
+    }
+
+    public int HighestPointsCollected
+    {
+        get;
+        private set;
+    }
+    
+    [Header("Runtime State")]
+    public int BellsCollectedDuringRuntime;
+
+    public int PointsCollected;
+    
     private void OnDisable()
     {
         SaveLevelState();
@@ -20,15 +33,15 @@ public class LevelState : ScriptableObject
 
     private void SaveLevelState()
     {
-        int bells = BellsCollectedDuringRuntime.Value > HighestBellsCollected.Value
-            ? BellsCollectedDuringRuntime.Value
-            : HighestBellsCollected.Value;
-        HighestBellsCollected.Variable.SetValue(bells);
+        int bells = BellsCollectedDuringRuntime > HighestBellsCollected
+            ? BellsCollectedDuringRuntime
+            : HighestBellsCollected;
+        HighestBellsCollected = bells;
 
-        int points = PointsCollected.Value > HighestPointsCollected.Value
-            ? PointsCollected.Value
-            : HighestPointsCollected.Value;
-        HighestPointsCollected.Variable.SetValue(points);
+        int points = PointsCollected > HighestPointsCollected
+            ? PointsCollected
+            : HighestPointsCollected;
+        HighestPointsCollected = points;
     }
     
 }
