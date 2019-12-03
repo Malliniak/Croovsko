@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class TimeScaleController
 {
-    public float TimeScale { get; private set; }
+    public float TimeScale
+    {
+        get => Time.timeScale;
+        private set { }
+    }
 
     public float DeltaTime => Time.deltaTime;
 
@@ -27,6 +31,7 @@ public class TimeScaleController
         while (timer < time)
         {
             Time.timeScale = Mathf.Lerp(start, end, timer / time);
+            
             timer += (Time.realtimeSinceStartup - lastTime);
             lastTime = Time.realtimeSinceStartup;
             yield return null;
