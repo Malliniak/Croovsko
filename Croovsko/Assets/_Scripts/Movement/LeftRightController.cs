@@ -33,7 +33,12 @@ public class LeftRightController : MonoBehaviour
 
     private void Start()
     {
-        _slowMotionCoroutine = _timeScaleController.ScaleTimeOverTime(1, _slowMotionValue, 0.5f);
+        SetSlowMotionCoroutine();
+    }
+
+    private void SetSlowMotionCoroutine()
+    {
+        _slowMotionCoroutine = _timeScaleController.ScaleTimeOverTime(_timeScaleController.TimeScale, _slowMotionValue, 0.5f);
     }
 
     public void NoInputAction()
@@ -43,9 +48,10 @@ public class LeftRightController : MonoBehaviour
         if (_joystickControls)
         {
             _joystickControls = false;
-            Debug.Log("ADDING AFTER JOUSTICK");
+            Debug.Log("ADDING AFTER JOYSTICK");
             AddForceToPlayer();
             StopCoroutine(_slowMotionCoroutine);
+            SetSlowMotionCoroutine();
         }
         else
         {
@@ -74,7 +80,6 @@ public class LeftRightController : MonoBehaviour
 
     public void JoystickControl()
     {
-
         _holdTimer += _timeScaleController.DeltaTime;
         if (_holdTimer >= _holdToActivate)
         {
@@ -83,7 +88,7 @@ public class LeftRightController : MonoBehaviour
             _forceDirection.x = lookVec.x > 0 ? -3 : 3;
 
             Joystick.background.gameObject.SetActive(true);
-            if (_timeScaleController.TimeScale >= 1)
+            if (_timeScaleController.TimeScale >= 1 )
             {
                 StartCoroutine(_slowMotionCoroutine);
             }
