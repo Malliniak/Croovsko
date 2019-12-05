@@ -6,6 +6,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class GameState : ScriptableObject
 {
-    public string LastPlayedLevel;
-    public int CurrentCurrency;
+    public string _lastPlayedLevel;
+    public int _currentCurrency;
 }

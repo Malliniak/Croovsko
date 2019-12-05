@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu]
 public class LevelState : ScriptableObject
 {
-    public string LevelID;
-    public int MaxBellsToCollect;
+    public string _levelId;
+    public int _maxBellsToCollect;
 
     public int HighestBellsCollected
     {
@@ -24,9 +24,9 @@ public class LevelState : ScriptableObject
     }
     
     [Header("Runtime State")]
-    public int BellsCollectedDuringRuntime;
+    public int _bellsCollectedDuringRuntime;
 
-    public int PointsCollected;
+    public int _pointsCollected;
     
     private void OnDisable()
     {
@@ -36,21 +36,21 @@ public class LevelState : ScriptableObject
     public static LevelState GetLevelStateAsset()
     {
         var id = SceneManager.GetActiveScene().name;
-        LevelState LevelState;
-        AssetLoader.GetAssetFile(out LevelState, $"Lvl{id}State");
-        Debug.Log(LevelState);
-        return LevelState;
+        LevelState levelState;
+        AssetLoader.GetAssetFile(out levelState, $"Lvl{id}State");
+        Debug.Log(levelState);
+        return levelState;
     }
 
     public void SaveLevelState()
     {
-        int bells = BellsCollectedDuringRuntime > HighestBellsCollected
-            ? BellsCollectedDuringRuntime
+        int bells = _bellsCollectedDuringRuntime > HighestBellsCollected
+            ? _bellsCollectedDuringRuntime
             : HighestBellsCollected;
         HighestBellsCollected = bells;
 
-        int points = PointsCollected > HighestPointsCollected
-            ? PointsCollected
+        int points = _pointsCollected > HighestPointsCollected
+            ? _pointsCollected
             : HighestPointsCollected;
         HighestPointsCollected = points;
     }

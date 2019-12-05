@@ -30,7 +30,7 @@ public abstract class ReferencePropertyDrawer : PropertyDrawer
         // Get properties
         SerializedProperty useConstant = property.FindPropertyRelative("UseConstant");
         SerializedProperty constantValue = property.FindPropertyRelative("ConstantValue");
-        SerializedProperty variable = property.FindPropertyRelative("Variable");
+        SerializedProperty variable = property.FindPropertyRelative("_variable");
 
         // Calculate rect for configuration button
         Rect buttonRect = new Rect(position);

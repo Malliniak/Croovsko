@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a31b89f92109435f99b61bfb1d361e9, type: 3}
   m_Name: LvL0State
   m_EditorClassIdentifier: 
-  LevelID: 0
-  MaxBellsToCollect: 0
-  BellsCollectedDuringRuntime: 0
-  PointsCollected: 0
+  _levelId: 0
+  _maxBellsToCollect: 0
+  _bellsCollectedDuringRuntime: 0
+  _pointsCollected: 0

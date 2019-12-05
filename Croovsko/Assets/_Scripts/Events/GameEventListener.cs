@@ -7,23 +7,23 @@ using UnityEngine.Events;
 public class GameEventListener : MonoBehaviour
 {
     [Tooltip("Event to register with.")]
-    public GameEvent Event;
+    public GameEvent _event;
 
     [Tooltip("Response to invoke when Event is raised.")]
-    public UnityEvent Response;
+    public UnityEvent _response;
 
     private void OnEnable()
     {
-        Event.RegisterListener(this);
+        _event.RegisterListener(this);
     }
 
     private void OnDisable()
     {
-        Event.UnregisterListener(this);
+        _event.UnregisterListener(this);
     }
 
     public void OnEventRaised()
     {
-        Response.Invoke();
+        _response.Invoke();
     }
 }

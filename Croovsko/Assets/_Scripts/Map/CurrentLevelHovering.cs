@@ -8,21 +8,21 @@ using UnityEngine;
 [CreateAssetMenu]
 public class CurrentLevelHovering : ScriptableObject
 {
-    public StringVariable ID;
-    public StringVariable MaxPointsCollected;
-    public StringVariable MaxStarsCollected;
+    public StringVariable _id;
+    public StringVariable _maxPointsCollected;
+    public StringVariable _maxStarsCollected;
 
     private void OnEnable()
     {
-        AssetLoader.GetAssetFile(out ID, "CurrentLevelID");
-        AssetLoader.GetAssetFile(out MaxPointsCollected, "CurrentLevelMaxPointsCollected");
-        AssetLoader.GetAssetFile(out MaxStarsCollected, "CurrentLevelMaxStarsCollected");
+        AssetLoader.GetAssetFile(out _id, "CurrentLevelID");
+        AssetLoader.GetAssetFile(out _maxPointsCollected, "CurrentLevelMaxPointsCollected");
+        AssetLoader.GetAssetFile(out _maxStarsCollected, "CurrentLevelMaxStarsCollected");
     }
 
     public void SetData(LevelState levelState)
     {
-        ID.Value = levelState.LevelID;
-        MaxPointsCollected.Value = $"{levelState.HighestPointsCollected}";
-        MaxStarsCollected.Value = $"{levelState.HighestBellsCollected}";
+        _id._value = levelState._levelId;
+        _maxPointsCollected._value = $"{levelState.HighestPointsCollected}";
+        _maxStarsCollected._value = $"{levelState.HighestBellsCollected}";
     }
 }

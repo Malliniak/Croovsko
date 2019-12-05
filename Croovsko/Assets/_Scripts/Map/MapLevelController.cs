@@ -6,27 +6,22 @@ using UnityEngine;
 
 public class MapLevelController : MonoBehaviour
 {
-    public string LevelID;
+    public string _levelId;
     [SerializeField] private LevelState _levelState;
-    [SerializeField] private CurrentLevelHovering CurrentMapLevel;
-    [SerializeField] private GameEvent OnCowEnterEvent;
+    private CurrentLevelHovering _currentMapLevel;
+    [SerializeField] private GameEvent _onCowEnterEvent;
     
     private void Awake()
     {
-        if (_levelState == null && LevelID != null)
-        {
-            AssetLoader.GetAssetFile(out _levelState, $"{LevelID}State");
-        }
-        AssetLoader.GetAssetFile(out CurrentMapLevel, "CurrentLevelMap");
+        _levelId = gameObject.name;
+        AssetLoader.GetAssetFile(out _levelState, $"{_levelId}State");
+        AssetLoader.GetAssetFile(out _currentMapLevel, "CurrentLevelMap");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<MapCowController>())
-        {
-            Debug.Log("COOCOCO");
-            CurrentMapLevel.SetData(_levelState);
-            OnCowEnterEvent.Raise();
-        }
+        if (!other.GetComponent<MapCowController>()) return;
+        _currentMapLevel.SetData(_levelState);
+        _onCowEnterEvent.Raise();
     }
 }

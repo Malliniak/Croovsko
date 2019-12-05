@@ -6,9 +6,9 @@ using UnityEngine;
 [Serializable]
 public class FloatReference: Reference<float>
 {
-    public FloatVariable Variable;
+    public FloatVariable _variable;
     public float Value
     {
-        get { return UseConstant ? ConstantValue : Variable.Value; }
+        get { return UseConstant ? ConstantValue : _variable._value; }
     }
 }

@@ -7,17 +7,17 @@ public abstract class BaseVariable<T> : ScriptableObject
 {
 #if UNITY_EDITOR
     [Multiline]
-    public string DeveloperDescription = "";
+    public string _developerDescription = "";
 #endif
-    public T Value;
+    public T _value;
 
     public void SetValue(T value)
     {
-        Value = value;
+        _value = value;
     }
 
     public void SetValue(BaseVariable<T> value)
     {
-        Value = value.Value;
+        _value = value._value;
     }
 }

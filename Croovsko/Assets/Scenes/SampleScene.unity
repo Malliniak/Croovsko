@@ -149,10 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a373cdca2584102a0713f9bd3903c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScreenTouchUp: {fileID: 11400000, guid: 3bb4d33d84e134aaa80417853d57a04e, type: 2}
-  ScreenHold: {fileID: 11400000, guid: 142dc459bdd894f40a1e5b763164bf0f, type: 2}
-  ScreenWithNoInput: {fileID: 11400000, guid: 57a205ce0e5254e339b961c6e3bdb0e2, type: 2}
-  _mousePosition: {fileID: 11400000, guid: 5cd202db9ec6940619920f7a10e455e6, type: 2}
+  _screenTouchUp: {fileID: 0}
+  _screenHold: {fileID: 0}
+  _screenWithNoInput: {fileID: 0}
+  _mousePosition: {fileID: 0}
 --- !u!4 &104983271
 Transform:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a586a456c6dccd142b577ad4fac74b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 891764095}
+  _target: {fileID: 891764095}
   _smoothTime: 160
 --- !u!20 &519420031
 Camera:
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f3a66b8014c46b7ad2fa3e9bc5ccf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameState: {fileID: 11400000, guid: 38e4bf59e3afa4645a09eea59f7aa0a3, type: 2}
+  _gameState: {fileID: 0}
   _mapLevelControllers: []
 --- !u!114 &891764100
 MonoBehaviour:
@@ -427,8 +427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c5affa9b6754064b95e497a892e17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 3bb4d33d84e134aaa80417853d57a04e, type: 2}
-  Response:
+  _event: {fileID: 11400000, guid: 3bb4d33d84e134aaa80417853d57a04e, type: 2}
+  _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 891764099}
@@ -521,14 +521,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fdb7ea39cd346ab9adc292de57202c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VariableToDisplay:
-    UseConstant: 0
-    ConstantValue: 
-    Variable: {fileID: 11400000, guid: 6f959b67fd9414613af262c054a8d2b1, type: 2}
-  Prefix:
+  _prefix:
     UseConstant: 1
     ConstantValue: 'Stars: '
-    Variable: {fileID: 0}
+    _variable: {fileID: 0}
+  _variableToDisplay:
+    UseConstant: 0
+    ConstantValue: 
+    _variable: {fileID: 11400000, guid: 6f959b67fd9414613af262c054a8d2b1, type: 2}
 --- !u!114 &1001687232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,8 +661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c5affa9b6754064b95e497a892e17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
-  Response:
+  _event: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
+  _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1001687231}
@@ -849,14 +849,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fdb7ea39cd346ab9adc292de57202c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VariableToDisplay:
-    UseConstant: 0
-    ConstantValue: 
-    Variable: {fileID: 11400000, guid: 22be28385425f46dd984afefa61229f5, type: 2}
-  Prefix:
+  _prefix:
     UseConstant: 1
     ConstantValue: 'Level: '
-    Variable: {fileID: 0}
+    _variable: {fileID: 0}
+  _variableToDisplay:
+    UseConstant: 0
+    ConstantValue: 
+    _variable: {fileID: 11400000, guid: 22be28385425f46dd984afefa61229f5, type: 2}
 --- !u!114 &1156913441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,8 +869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c5affa9b6754064b95e497a892e17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
-  Response:
+  _event: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
+  _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1156913440}
@@ -931,10 +931,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5741d3626304868b152c461667c6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelID: -1
+  _levelId: -1
   _levelState: {fileID: 0}
-  CurrentMapLevel: {fileID: 0}
-  OnCowEnterEvent: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
+  _onCowEnterEvent: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
 --- !u!212 &1270358389
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1187,8 +1186,8 @@ GameObject:
   - component: {fileID: 1669717587}
   - component: {fileID: 1669717590}
   - component: {fileID: 1669717589}
-  - component: {fileID: 1669717588}
   - component: {fileID: 1669717591}
+  - component: {fileID: 1669717588}
   m_Layer: 5
   m_Name: Points
   m_TagString: Untagged
@@ -1227,14 +1226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fdb7ea39cd346ab9adc292de57202c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VariableToDisplay:
-    UseConstant: 0
-    ConstantValue: 
-    Variable: {fileID: 11400000, guid: f1a1dffd84e80422d93ddf0d3fcd8415, type: 2}
-  Prefix:
+  _prefix:
     UseConstant: 1
     ConstantValue: 'Points: '
-    Variable: {fileID: 0}
+    _variable: {fileID: 0}
+  _variableToDisplay:
+    UseConstant: 0
+    ConstantValue: 
+    _variable: {fileID: 11400000, guid: f1a1dffd84e80422d93ddf0d3fcd8415, type: 2}
 --- !u!114 &1669717589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,8 +1366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c5affa9b6754064b95e497a892e17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
-  Response:
+  _event: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
+  _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1669717588}
@@ -1429,10 +1428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5741d3626304868b152c461667c6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelID: 0
+  _levelId: 0
   _levelState: {fileID: 0}
-  CurrentMapLevel: {fileID: 0}
-  OnCowEnterEvent: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
+  _onCowEnterEvent: {fileID: 11400000, guid: bfa947993a95045bdb2c9bb02c0d153e, type: 2}
 --- !u!212 &1937088093
 SpriteRenderer:
   m_ObjectHideFlags: 0

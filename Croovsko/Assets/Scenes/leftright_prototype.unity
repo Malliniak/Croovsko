@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a586a456c6dccd142b577ad4fac74b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 738863168}
+  _target: {fileID: 738863168}
   _smoothTime: 4
 --- !u!1 &580481438
 GameObject:
@@ -642,6 +642,18 @@ Transform:
   m_Father: {fileID: 1064441067}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
+--- !u!114 &712651430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8135886326569738823, guid: 56fae09712773584fb63896d473a98ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 881687736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &738863168
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,8 +750,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c5affa9b6754064b95e497a892e17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 3bb4d33d84e134aaa80417853d57a04e, type: 2}
-  Response:
+  _event: {fileID: 11400000, guid: 3bb4d33d84e134aaa80417853d57a04e, type: 2}
+  _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 738863173}
@@ -767,13 +779,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913087448e529498ab9d15b45c09027a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mousePos:
-    UseConstant: 0
-    ConstantValue: {x: 0, y: 0}
-    Variable: {fileID: 11400000, guid: 5cd202db9ec6940619920f7a10e455e6, type: 2}
   _holdToActivate: 0.25
+  _mousePosition: {fileID: 0}
+  _forceDirection: {x: 3, y: 6}
+  _joystick: {fileID: 712651430}
+  _slowMotionForce: 10
   _slowMotionValue: 0.196
-  Joystick: {fileID: 1707818648}
 --- !u!114 &738863174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,8 +797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c5affa9b6754064b95e497a892e17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 57a205ce0e5254e339b961c6e3bdb0e2, type: 2}
-  Response:
+  _event: {fileID: 11400000, guid: 57a205ce0e5254e339b961c6e3bdb0e2, type: 2}
+  _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 738863173}
@@ -815,8 +826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c5affa9b6754064b95e497a892e17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 142dc459bdd894f40a1e5b763164bf0f, type: 2}
-  Response:
+  _event: {fileID: 11400000, guid: 142dc459bdd894f40a1e5b763164bf0f, type: 2}
+  _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 738863173}
@@ -842,7 +853,6 @@ GameObject:
   m_Component:
   - component: {fileID: 757424356}
   - component: {fileID: 757424355}
-  - component: {fileID: 757424357}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -862,9 +872,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a373cdca2584102a0713f9bd3903c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScreenTouchUp: {fileID: 11400000, guid: 3bb4d33d84e134aaa80417853d57a04e, type: 2}
-  ScreenHold: {fileID: 11400000, guid: 142dc459bdd894f40a1e5b763164bf0f, type: 2}
-  ScreenWithNoInput: {fileID: 11400000, guid: 57a205ce0e5254e339b961c6e3bdb0e2, type: 2}
+  _screenTouchUp: {fileID: 0}
+  _screenHold: {fileID: 0}
+  _screenWithNoInput: {fileID: 0}
   _mousePosition: {fileID: 11400000, guid: 5cd202db9ec6940619920f7a10e455e6, type: 2}
 --- !u!4 &757424356
 Transform:
@@ -880,19 +890,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &757424357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757424354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0569af35722614390b87abe1e68297fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelState: {fileID: 0}
 --- !u!1 &817150979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,18 +2071,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 881687736}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1707818648 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8135886326569738823, guid: 56fae09712773584fb63896d473a98ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 881687736}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1730128329
 GameObject:
   m_ObjectHideFlags: 0
