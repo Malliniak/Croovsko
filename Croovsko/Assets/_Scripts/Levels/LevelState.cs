@@ -22,6 +22,8 @@ public class LevelState : ScriptableObject
         get;
         private set;
     }
+
+    public bool Unlocked;
     
     [Header("Runtime State")]
     public int _bellsCollectedDuringRuntime;

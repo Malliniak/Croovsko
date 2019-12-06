@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelId: -1
   _maxBellsToCollect: 0
+  Unlocked: 1
   _bellsCollectedDuringRuntime: 0
   _pointsCollected: 0

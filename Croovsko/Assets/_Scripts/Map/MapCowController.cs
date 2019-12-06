@@ -98,6 +98,7 @@ public class MapCowController : MonoBehaviour
         {
             MapLevelController mapLevelController = hit.transform.GetComponent<MapLevelController>();
             if(!mapLevelController) return;
+            if(!mapLevelController.IsUnlocked) return;
             Debug.Log(mapLevelController);
             ConfigureRouteToLevel(mapLevelController);
         }
