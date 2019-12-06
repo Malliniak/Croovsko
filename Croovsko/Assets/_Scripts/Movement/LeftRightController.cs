@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class LeftRightController : MonoBehaviour
 {
+    [SerializeField] private Vector2 _forceDirection = new Vector2(3f, 6f);
     [Header("Joystick and SloMo")] private float _holdTimer;
 
     [SerializeField] private float _holdToActivate = 1f;
+
+    [SerializeField] private DynamicJoystick _joystick;
 
     private bool _joystickControls;
 
@@ -15,12 +18,9 @@ public class LeftRightController : MonoBehaviour
     private Rigidbody2D _rb2D;
     private ScreenSizeProvider _screenSizeProvider;
     private IEnumerator _slowMotionCoroutine;
-    private TimeScaleController _timeScaleController;
-    [SerializeField] private Vector2 _forceDirection = new Vector2(3f, 6f);
-
-    [SerializeField] private DynamicJoystick _joystick;
     [SerializeField] private int _slowMotionForce = 10;
     [SerializeField] [Range(0.1f, 1f)] private float _slowMotionValue;
+    private TimeScaleController _timeScaleController;
 
     private void Awake()
     {

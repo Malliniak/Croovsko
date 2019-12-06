@@ -1,27 +1,26 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeScaleController
 {
-    public float TimeScale
-    {
-        get => Time.timeScale;
-        private set {}
-    }
-
-    public float DeltaTime => Time.deltaTime;
-
     public TimeScaleController()
     {
         TimeScale = Time.timeScale;
     }
 
+    public float TimeScale
+    {
+        get => Time.timeScale;
+        private set { }
+    }
+
+    public float DeltaTime => Time.deltaTime;
+
     public void SetTimeScale(float scale)
     {
         Time.timeScale = scale;
     }
-    
+
     public IEnumerator ScaleTimeOverTime(float start, float end, float time) //not in Start or Update
     {
         float lastTime = Time.realtimeSinceStartup;
@@ -30,8 +29,8 @@ public class TimeScaleController
         while (timer < time)
         {
             Time.timeScale = Mathf.Lerp(start, end, timer / time);
-            
-            timer += (Time.realtimeSinceStartup - lastTime);
+
+            timer += Time.realtimeSinceStartup - lastTime;
             lastTime = Time.realtimeSinceStartup;
             yield return null;
         }

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using _Scripts.Helpers;
-using UnityEditor;
+﻿using _Scripts.Helpers;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public GameEvent _screenTouchUp;
-    public GameEvent _screenHold;
-    public GameEvent _screenWithNoInput;
+    [SerializeField] private Vector2Variable _mousePosition;
 
-    [SerializeField]
-    private Vector2Variable _mousePosition;
+    public GameEvent _screenHold;
+    public GameEvent _screenTouchUp;
+    public GameEvent _screenWithNoInput;
 
     private void Awake()
     {
@@ -29,15 +24,9 @@ public class InputManager : MonoBehaviour
             _mousePosition.SetValue(Input.mousePosition);
             _screenHold.Raise();
         }
-        
-        if (Input.GetMouseButtonUp(0))
-        {
-            _screenTouchUp.Raise();
-        }
-        
-        if (!Input.GetMouseButton(0))
-        {
-            _screenWithNoInput.Raise();
-        }
+
+        if (Input.GetMouseButtonUp(0)) _screenTouchUp.Raise();
+
+        if (!Input.GetMouseButton(0)) _screenWithNoInput.Raise();
     }
 }

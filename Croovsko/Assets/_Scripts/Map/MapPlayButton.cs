@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using _Scripts.Helpers;
+﻿using _Scripts.Helpers;
 using _Scripts.Variables;
 using UnityEngine;
 using UnityEngine.SceneManagement;

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class BaseVariable<T> : ScriptableObject
 {
 #if UNITY_EDITOR
-    [Multiline]
-    public string _developerDescription = "";
+    [Multiline] public string _developerDescription = "";
 #endif
     public T _value;
 

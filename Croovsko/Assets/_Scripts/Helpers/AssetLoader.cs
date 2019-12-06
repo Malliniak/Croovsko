@@ -5,10 +5,11 @@ namespace _Scripts.Helpers
 {
     public class AssetLoader
     {
-        public static void GetAssetFile<T>(out T asset, string filter = "DefaultAsset l:noLabel t:noType") where T : ScriptableObject
+        public static void GetAssetFile<T>(out T asset, string filter = "DefaultAsset l:noLabel t:noType")
+            where T : ScriptableObject
         {
             string[] guids = AssetDatabase.FindAssets(filter);
-            if(guids.Length > 0)
+            if (guids.Length > 0)
             {
                 string assetPath = AssetDatabase.GUIDToAssetPath(guids[0]); // only one loaded
                 asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(T)) as T;

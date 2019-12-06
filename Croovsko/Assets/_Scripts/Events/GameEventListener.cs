@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class GameEventListener : MonoBehaviour
 {
-    [Tooltip("Event to register with.")]
-    public GameEvent _event;
+    [Tooltip("Event to register with.")] public GameEvent _event;
 
     [Tooltip("Response to invoke when Event is raised.")]
     public UnityEvent _response;

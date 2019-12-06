@@ -1,17 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-
-    public GameObject _target;
+    private bool _istargetNotNull;
 
     private Vector3 _refVelocity;
-    [SerializeField]
-    private float _smoothTime;
 
-    private bool _istargetNotNull;
+    [SerializeField] private float _smoothTime;
+
+    public GameObject _target;
 
     // Update is called once per frame
     private void Start()
@@ -19,12 +16,13 @@ public class CameraFollow : MonoBehaviour
         _istargetNotNull = _target != null;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (_istargetNotNull)
         {
             Vector3 targetPosition = new Vector3(_target.transform.position.x, _target.transform.position.y, -10f);
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _refVelocity, _smoothTime * Time.deltaTime);
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _refVelocity,
+                _smoothTime * Time.deltaTime);
         }
         else
         {
