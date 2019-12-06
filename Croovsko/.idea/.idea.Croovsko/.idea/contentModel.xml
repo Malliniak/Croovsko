@@ -40,6 +40,7 @@
             <e p="CurrentLevelHovering.cs" t="Include" />
             <e p="MapCowController.cs" t="Include" />
             <e p="MapLevelController.cs" t="Include" />
+            <e p="MapPlayButton.cs" t="Include" />
           </e>
           <e p="Movement" t="Include">
             <e p="LeftRightController.cs" t="Include" />

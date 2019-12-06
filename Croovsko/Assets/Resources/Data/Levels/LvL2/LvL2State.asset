@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a31b89f92109435f99b61bfb1d361e9, type: 3}
-  m_Name: LvL1State
+  m_Name: LvL2State
   m_EditorClassIdentifier: 
-  _levelId: 1
+  _levelId: 2
   _maxBellsToCollect: 0
   _bellsCollectedDuringRuntime: 0
   _pointsCollected: 0

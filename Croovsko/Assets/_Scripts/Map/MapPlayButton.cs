@@ -1,18 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Helpers;
+using _Scripts.Variables;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapPlayButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private StringVariable _levelId;
+
+    private void Awake()
     {
-        
+        AssetLoader.GetAssetFile(out _levelId, "CurrentLevelID");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadCurrentLevel()
     {
-        
+        SceneManager.LoadScene(_levelId._value);
     }
 }

@@ -14,7 +14,7 @@ public class MapLevelController : MonoBehaviour
     private void Awake()
     {
         _levelId = gameObject.name;
-        AssetLoader.GetAssetFile(out _levelState, $"{_levelId}State");
+        AssetLoader.GetAssetFile(out _levelState, $"LvL{_levelId}State");
         AssetLoader.GetAssetFile(out _currentMapLevel, "CurrentLevelMap");
     }
 
@@ -22,6 +22,7 @@ public class MapLevelController : MonoBehaviour
     {
         if (!other.GetComponent<MapCowController>()) return;
         _currentMapLevel.SetData(_levelState);
+        other.GetComponent<MapCowController>().CurrentLevelHovering = this;
         _onCowEnterEvent.Raise();
     }
 }

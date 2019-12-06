@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Helpers;
 using UnityEngine;
@@ -9,15 +8,15 @@ public class MapCowController : MonoBehaviour
     [SerializeField] private GameState _gameState;
     [SerializeField] private List<MapLevelController> _mapLevelControllers = new List<MapLevelController>();
     private Vector2Variable _mousePosition;
-    
-    private Rigidbody2D _rigidbody;
 
-    private bool _shouldMove = false;
+    public MapLevelController CurrentLevelHovering { get; set; }
+
+    private bool _shouldMove;
     private Vector3 _destination;
+    private List<MapLevelController> waypoints = new List<MapLevelController>();
     private void Awake()
     {
         AssetLoader.GetAssetFile(out _mousePosition, "MousePosition");
-        _rigidbody = GetComponent<Rigidbody2D>();
         AssetLoader.GetAssetFile(out _gameState, "GameStateData");
         GetMapLevelsControllers();
         _mapLevelControllers.Sort((x, y) => string.Compare(x._levelId, y._levelId, StringComparison.Ordinal));
@@ -31,7 +30,7 @@ public class MapCowController : MonoBehaviour
         }
         else
         {
-            MoveToLevel(_mapLevelControllers[0].transform.position);
+            ConfigureRouteToLevel(_mapLevelControllers[0]);
         }
     }
 
@@ -39,24 +38,47 @@ public class MapCowController : MonoBehaviour
     {
         if (_shouldMove)
         {
+            _destination = waypoints[0].transform.position;
             transform.position = Vector3.MoveTowards(transform.position, _destination, Time.deltaTime * 2f);
+
             if (_destination == transform.position)
             {
+                waypoints.RemoveAt(0);
+                if (waypoints.Count > 0) return;
                 _shouldMove = false;
             }
         }
     }
 
-    private void MoveToLevel(Vector2 position)
+    private void ConfigureRouteToLevel(MapLevelController levelController)
     {
-        _destination = position;
+        int currentIndex = _mapLevelControllers.FindIndex(x => x == CurrentLevelHovering);
+        int destinationIndex = _mapLevelControllers.FindIndex(x => x == levelController);
+        int waypointsIndex = Math.Abs(currentIndex - destinationIndex);
+        
+        Debug.Log($"{waypointsIndex}, {destinationIndex}, {currentIndex}");
+
+        int shouldStartWith = currentIndex+1;
+        if (currentIndex > destinationIndex)
+            shouldStartWith = destinationIndex;
+
+        for (int i = shouldStartWith; i < shouldStartWith + waypointsIndex; i++)
+        {
+            if (waypointsIndex <= 0) continue;
+            Debug.Log("ADDING");
+            waypoints.Add(_mapLevelControllers[i]);
+        }
+        
+        if(currentIndex > destinationIndex)
+            waypoints.Sort((x, y) => string.CompareOrdinal(y._levelId, x._levelId));
+
         _shouldMove = true;
     }
 
     private void MoveToLastPlayedLevel()
     {
         var level = _mapLevelControllers.Find(x => x._levelId.Contains(_gameState._lastPlayedLevel));
-        MoveToLevel(level.transform.position);
+        transform.position = level.transform.position;
     }
 
     private void GetMapLevelsControllers()
@@ -77,7 +99,7 @@ public class MapCowController : MonoBehaviour
             MapLevelController mapLevelController = hit.transform.GetComponent<MapLevelController>();
             if(!mapLevelController) return;
             Debug.Log(mapLevelController);
-            MoveToLevel(mapLevelController.transform.position);
+            ConfigureRouteToLevel(mapLevelController);
         }
     }
 }
