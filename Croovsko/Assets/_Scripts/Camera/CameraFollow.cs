@@ -1,27 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-
-    public GameObject target;
+    private bool _isTargetNull;
 
     private Vector3 _refVelocity;
-    [SerializeField]
-    private float _smoothTime;
+
+    [SerializeField] private float _smoothTime;
+
+    public GameObject _target;
+    private Vector3 _targetPosition;
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void Start()
     {
-        if (target != null)
-        {
-            Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y, -10f);
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _refVelocity, _smoothTime * Time.deltaTime);
-        }
-        else
+        _isTargetNull = _target == null;
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isTargetNull)
         {
             Debug.LogError("Target unassigned!");
+            return;
         }
+        _targetPosition = new Vector3(_target.transform.position.x, _target.transform.position.y, -10f);
+        transform.position = Vector3.SmoothDamp(transform.position, _targetPosition, ref _refVelocity, 
+            _smoothTime * Time.deltaTime);
     }
 }

@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu]
 public class IntVariable : BaseVariable<int>
 {
     public void AddToValue(int amount)
     {
-        Value += amount;
+        _value += amount;
     }
 
     public void AddToValue(IntVariable amount)
     {
-        Value += amount.Value;
+        _value += amount._value;
     }
 }

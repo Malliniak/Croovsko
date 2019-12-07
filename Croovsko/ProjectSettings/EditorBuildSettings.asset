@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/leftright_prototype.unity
+    path: Assets/Scenes/Levels/-1.unity
     guid: 7e37c6929541446d0a55f8057e92e0a3
   - enabled: 1
     path: Assets/Slingshot_prototype/slingshot_prototype.unity

@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 public abstract class ReferencePropertyDrawer : PropertyDrawer
 {
     /// <summary>
-    /// Options to display in the popup to select constant or variable.
+    ///     Options to display in the popup to select constant or variable.
     /// </summary>
-    private readonly string[] popupOptions = 
-        { "Use Constant", "Use Variable" };
+    private readonly string[] popupOptions =
+        {"Use Constant", "Use Variable"};
 
     /// <summary> Cached style to use to draw the popup button. </summary>
     private GUIStyle popupStyle;
@@ -24,13 +22,13 @@ public abstract class ReferencePropertyDrawer : PropertyDrawer
 
         label = EditorGUI.BeginProperty(position, label, property);
         position = EditorGUI.PrefixLabel(position, label);
-        
+
         EditorGUI.BeginChangeCheck();
 
         // Get properties
         SerializedProperty useConstant = property.FindPropertyRelative("UseConstant");
         SerializedProperty constantValue = property.FindPropertyRelative("ConstantValue");
-        SerializedProperty variable = property.FindPropertyRelative("Variable");
+        SerializedProperty variable = property.FindPropertyRelative("_variable");
 
         // Calculate rect for configuration button
         Rect buttonRect = new Rect(position);
@@ -46,8 +44,8 @@ public abstract class ReferencePropertyDrawer : PropertyDrawer
 
         useConstant.boolValue = result == 0;
 
-        EditorGUI.PropertyField(position, 
-            useConstant.boolValue ? constantValue : variable, 
+        EditorGUI.PropertyField(position,
+            useConstant.boolValue ? constantValue : variable,
             GUIContent.none);
 
         if (EditorGUI.EndChangeCheck())

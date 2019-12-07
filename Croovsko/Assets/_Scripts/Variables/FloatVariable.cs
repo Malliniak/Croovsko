@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu]
 public class FloatVariable : BaseVariable<float>
 {
     public void AddToValue(float amount)
     {
-        Value += amount;
+        _value += amount;
     }
 
     public void AddToValue(FloatVariable amount)
     {
-        Value += amount.Value;
+        _value += amount._value;
     }
 }
