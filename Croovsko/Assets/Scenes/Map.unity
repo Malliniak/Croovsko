@@ -149,10 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a373cdca2584102a0713f9bd3903c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _screenTouchUp: {fileID: 0}
-  _screenHold: {fileID: 0}
-  _screenWithNoInput: {fileID: 0}
   _mousePosition: {fileID: 0}
+  _screenHold: {fileID: 0}
+  _screenTouchUp: {fileID: 0}
+  _screenWithNoInput: {fileID: 0}
 --- !u!4 &104983271
 Transform:
   m_ObjectHideFlags: 0
@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a586a456c6dccd142b577ad4fac74b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 891764095}
   _smoothTime: 160
+  _target: {fileID: 891764095}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
