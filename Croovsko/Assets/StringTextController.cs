@@ -2,12 +2,12 @@
 using TMPro;
 using UnityEngine;
 
-public class UiTextController : MonoBehaviour
+public class StringTextController : MonoBehaviour
 {
     private TextMeshProUGUI _text;
 
     [SerializeField] private StringReference _prefix;
-    [SerializeField] private  _variableToDisplay;
+    [SerializeField] private StringReference _variableToDisplay;
 
     private void Awake()
     {

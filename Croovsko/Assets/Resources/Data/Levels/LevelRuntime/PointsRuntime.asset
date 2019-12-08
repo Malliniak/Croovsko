@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3517ba29baa84f93b43c5cbaa1d3ab75, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a39ab17e6f8846689e539909a449829, type: 3}
   m_Name: PointsRuntime
   m_EditorClassIdentifier: 
   _developerDescription: 
-  _value: 
+  _value: 0
