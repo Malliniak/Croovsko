@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using _Scripts.Helpers;
+using _Scripts.Shooting.ShootingControllers;
 using UnityEngine;
 
 public class LeftRightController : MonoBehaviour
 {
+    private ShootingCowController shootingController;
     [SerializeField] private Vector2 _forceDirection = new Vector2(3f, 6f);
     [Header("Joystick and SloMo")] private float _holdTimer;
 
@@ -26,6 +28,8 @@ public class LeftRightController : MonoBehaviour
     {
         _screenSizeProvider = new ScreenSizeProvider();
         _timeScaleController = new TimeScaleController();
+        
+        shootingController = GetComponent<ShootingCowController>();
         _rb2D = GetComponent<Rigidbody2D>();
 
         if (_mousePosition) return;
@@ -54,6 +58,7 @@ public class LeftRightController : MonoBehaviour
             AddForceToPlayer();
             StopCoroutine(_slowMotionCoroutine);
             SetSlowMotionCoroutine();
+            shootingController.Shoot(shootingController.SlowMoBullet);
         }
         else
         {
@@ -72,6 +77,8 @@ public class LeftRightController : MonoBehaviour
             _forceDirection.x = _mousePosition._value.x > _screenSizeProvider.ScreenWidth / 2 ? 3 : -3;
             _forceDirection.y = 6;
             AddForceToPlayer();
+            shootingController.Shoot(shootingController.NormalBullet);
+            shootingController.RotateBulletToward(_forceDirection);
         }
     }
 
