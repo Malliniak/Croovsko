@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Slingshot_prototype/slingshot_prototype.unity
     guid: c094a3f7456f74a71bce4e499bd36614
+  - enabled: 1
+    path: Assets/Scenes/Levels/0.unity
+    guid: 5374a0c67a9f67c4a86ea651c4601e2e
   m_configObjects: {}
