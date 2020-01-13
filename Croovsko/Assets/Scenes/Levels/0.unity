@@ -1348,6 +1348,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7875372757279728651, guid: bc33669472eba41cd94f9f3801a7855c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7875372757279728651, guid: bc33669472eba41cd94f9f3801a7855c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7875372757279728651, guid: bc33669472eba41cd94f9f3801a7855c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7875372758492422889, guid: bc33669472eba41cd94f9f3801a7855c,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1368,6 +1383,12 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.b
       value: 0.09411765
       objectReference: {fileID: 0}
+    - target: {fileID: 7875372758709833655, guid: bc33669472eba41cd94f9f3801a7855c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 97fead8e11bca4d76b93280c7f560bae,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc33669472eba41cd94f9f3801a7855c, type: 3}
 --- !u!1 &227412722
