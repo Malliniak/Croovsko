@@ -21,10 +21,12 @@ public class CameraFollow : MonoBehaviour
     {
         if (_isTargetNull)
         {
-            Debug.LogError("Target unassigned!");
+            Debug.LogWarning("Target unassigned!", this);
             return;
         }
-        _targetPosition = new Vector3(_target.transform.position.x, _target.transform.position.y, -10f);
+
+        Vector3 position = _target.transform.position;
+        _targetPosition = new Vector3(position.x, position.y, -10f);
         transform.position = Vector3.SmoothDamp(transform.position, _targetPosition, ref _refVelocity, 
             _smoothTime * Time.deltaTime);
     }

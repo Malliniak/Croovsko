@@ -1,4 +1,5 @@
-﻿using _Scripts.Helpers;
+﻿using System.Collections;
+using _Scripts.Helpers;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -8,6 +9,9 @@ public class InputManager : MonoBehaviour
     public GameEvent _screenHold;
     public GameEvent _screenTouchUp;
     public GameEvent _screenWithNoInput;
+    public GameEvent _screenTouchUpAfterHold;
+
+    private bool isHolding = false;
 
     private void Awake()
     {
@@ -15,18 +19,48 @@ public class InputManager : MonoBehaviour
         AssetLoader.GetAssetFile(out _screenHold, "Hold");
         AssetLoader.GetAssetFile(out _screenTouchUp, "TouchUp");
         AssetLoader.GetAssetFile(out _screenWithNoInput, "NoInput");
+        AssetLoader.GetAssetFile(out _screenTouchUpAfterHold, "TouchUpAfterHold");
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.touches.Length == 0)
         {
-            _mousePosition.SetValue(Input.mousePosition);
-            _screenHold.Raise();
+            _screenWithNoInput.Raise();
+            return;
+        }
+        
+        Touch firstTouch = Input.GetTouch(0);
+        
+        if (firstTouch.phase == TouchPhase.Began)
+        {
+            StartCoroutine(nameof(TouchHoldCoroutine), firstTouch);
+        }
+        if (firstTouch.phase == TouchPhase.Ended)
+        {
+            StopCoroutine(nameof(TouchHoldCoroutine));
+            if (isHolding)
+            {
+                isHolding = false;
+                _screenTouchUpAfterHold.Raise();
+                return;
+            }
+            _mousePosition.SetValue(firstTouch.position);
+            _screenTouchUp.Raise();
         }
 
-        if (Input.GetMouseButtonUp(0)) _screenTouchUp.Raise();
+        if (isHolding)
+        {
+            _screenHold.Raise();
+        }
+    }
 
-        if (!Input.GetMouseButton(0)) _screenWithNoInput.Raise();
+    IEnumerator TouchHoldCoroutine(Touch touch)
+    {
+        yield return new WaitForSeconds(0.25f);
+        if (touch.phase != TouchPhase.Ended)
+        {
+            isHolding = true;
+        }
     }
 }

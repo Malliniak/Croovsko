@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using _Scripts.Helpers;
 using UnityEngine;
 
@@ -6,9 +7,6 @@ public class LeftRightController : MonoBehaviour
 {
     [SerializeField] private Vector2 _forceDirection = new Vector2(3f, 6f);
     [Header("Joystick and SloMo")] private float _holdTimer;
-
-    [SerializeField] private float _holdToActivate = 1f;
-
     [SerializeField] private DynamicJoystick _joystick;
 
     private bool _joystickControls;
@@ -17,10 +15,10 @@ public class LeftRightController : MonoBehaviour
 
     private Rigidbody2D _rb2D;
     private ScreenSizeProvider _screenSizeProvider;
-    private IEnumerator _slowMotionCoroutine;
     [SerializeField] private int _slowMotionForce = 10;
     [SerializeField] [Range(0.1f, 1f)] private float _slowMotionValue;
     private TimeScaleController _timeScaleController;
+    private bool _alreadyHolding = false;
 
     private void Awake()
     {
@@ -32,40 +30,20 @@ public class LeftRightController : MonoBehaviour
         AssetLoader.GetAssetFile(out _mousePosition, "MousePosition");
     }
 
-    private void Start()
+    public void AfterHoldTouch()
     {
-        SetSlowMotionCoroutine();
-    }
-
-    private void SetSlowMotionCoroutine()
-    {
-        _slowMotionCoroutine =
-            _timeScaleController.ScaleTimeOverTime(_timeScaleController.TimeScale, _slowMotionValue, 0.5f);
-    }
-
-    public void NoInputAction()
-    {
-        _holdTimer = 0;
-        _timeScaleController.SetTimeScale(1);
-        if (_joystickControls)
-        {
-            _joystickControls = false;
-            Debug.Log("ADDING AFTER JOYSTICK");
-            AddForceToPlayer();
-            StopCoroutine(_slowMotionCoroutine);
-            SetSlowMotionCoroutine();
-        }
-        else
-        {
-            transform.LookAt2d(-_forceDirection, 15f);
-        }
-
+        _alreadyHolding = false;
+        _timeScaleController.NormalTime(0.05f);
+        _joystickControls = false;
+        Debug.Log("ADDING AFTER JOYSTICK");
+        AddForceToPlayer();
+        
         _joystick.background.gameObject.SetActive(false);
     }
 
     public void JumpOnTouch()
     {
-        _timeScaleController.SetTimeScale(1);
+        _timeScaleController.NormalTime(0.05f);
         if (_joystickControls == false)
         {
             Debug.Log("ADDING NORMAL");
@@ -73,6 +51,12 @@ public class LeftRightController : MonoBehaviour
             _forceDirection.y = 6;
             AddForceToPlayer();
         }
+    }
+
+    public void NoInput()
+    {
+        transform.LookAt2d(-_forceDirection, 15f);
+        _timeScaleController.SetTimeScale(1f);
     }
 
     private void AddForceToPlayer()
@@ -83,16 +67,14 @@ public class LeftRightController : MonoBehaviour
 
     public void JoystickControl()
     {
-        _holdTimer += _timeScaleController.DeltaTime;
-        if (_holdTimer >= _holdToActivate)
-        {
-            Vector3 lookVec = new Vector3(_joystick.input.x, _joystick.input.y, 0);
-            transform.LookAt2d(lookVec);
-            _forceDirection = lookVec.normalized * -_slowMotionForce;
+        if(!_alreadyHolding)
+            _timeScaleController.SlowDownTime(_slowMotionValue, 0.3f);
+        _alreadyHolding = true;
+        Vector3 lookVec = new Vector3(_joystick.input.x, _joystick.input.y, 0);
+        transform.LookAt2d(lookVec);
+        _forceDirection = lookVec.normalized * -_slowMotionForce;
 
-            _joystick.background.gameObject.SetActive(true);
-            if (_timeScaleController.TimeScale >= 1) StartCoroutine(_slowMotionCoroutine);
-            _joystickControls = true;
-        }
+        _joystick.background.gameObject.SetActive(true);
+        _joystickControls = true;
     }
 }

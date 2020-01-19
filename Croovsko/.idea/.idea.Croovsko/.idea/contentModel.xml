@@ -43,7 +43,9 @@
             <e p="MapPlayButton.cs" t="Include" />
           </e>
           <e p="Movement" t="Include">
-            <e p="LeftRightController.cs" t="Include" />
+            <e p="MonoBehaviours" t="Include">
+              <e p="LeftRightController.cs" t="Include" />
+            </e>
           </e>
           <e p="State" t="Include">
             <e p="GameState.cs" t="Include" />
@@ -62,7 +64,9 @@
           </e>
         </e>
         <e p="BoxController.cs" t="Include" />
+        <e p="CameraZoom.cs" t="Include" />
         <e p="CoinController.cs" t="Include" />
+        <e p="CoinDestroyer.cs" t="Include" />
         <e p="IntTextController.cs" t="Include" />
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
@@ -119,6 +123,13 @@
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
+        </e>
+        <e p="Tween" t="Include">
+          <e p="Demo" t="Include">
+            <e p="TweenDemo.cs" t="Include" />
+          </e>
+          <e p="Readme.txt" t="Include" />
+          <e p="Tween.cs" t="Include" />
         </e>
       </e>
       <e p="Croovsko.sln" t="IncludeFlat" />
