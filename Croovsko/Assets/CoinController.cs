@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Helpers;
-using DigitalRuby.Tween;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class CoinController : MonoBehaviour

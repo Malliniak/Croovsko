@@ -21,9 +21,6 @@ public class CameraZoom : MonoBehaviour
         _ortographicSize = _camera.orthographicSize;
         _zoomInValue = _ortographicSize - _zoomValue;
         _zoomOutValue = _ortographicSize;
-        
-        print(_zoomInValue);
-        print(_zoomOutValue);
     }
 
     public void ZoomOutCamera()
