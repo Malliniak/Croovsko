@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Helpers;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class CoinController : MonoBehaviour
@@ -10,6 +9,9 @@ public class CoinController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     public int amountToAdd = 5;
     public IntVariable PointsRuntimeVariable;
+    private bool _shouldMoveToPlayer;
+    private LeftRightController _player;
+  
 
     private void Awake()
     {
@@ -26,9 +28,17 @@ public class CoinController : MonoBehaviour
     {
         if (other.GetComponent<LeftRightController>())
         {
+            _player = other.GetComponent<LeftRightController>();
             Debug.Log("Add Points Here");
             PointsRuntimeVariable.AddToValue(amountToAdd);
-            Destroy(gameObject);
+            _shouldMoveToPlayer = true;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!_shouldMoveToPlayer)
+            return;
+        _rigidbody.velocity = (_player.transform.position - transform.position).normalized * 1.2f; 
     }
 }

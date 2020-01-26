@@ -8,17 +8,18 @@ namespace _Scripts.Helpers
         public static void GetAssetFile<T>(out T asset, string filter = "DefaultAsset l:noLabel t:noType")
             where T : ScriptableObject
         {
-            string[] guids = AssetDatabase.FindAssets(filter);
-            if (guids.Length > 0)
+            var _scriptabels = Resources.LoadAll("Data/");
+            foreach (var VARIABLE in _scriptabels)
             {
-                string assetPath = AssetDatabase.GUIDToAssetPath(guids[0]); // only one loaded
-                asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(T)) as T;
+                //Debug.LogWarning($"Lookinig for: {filter}, current: {VARIABLE.name}");
+                if (VARIABLE.name.Equals(filter))
+                {
+                    asset = VARIABLE as T;
+                    return;
+                }
             }
-            else
-            {
-                asset = null;
-                Debug.LogWarning("There is not Asset File With this filter matching");
-            }
+            asset = null;
+            //Debug.LogWarning("NO ASSET :( ");
         }
     }
 }

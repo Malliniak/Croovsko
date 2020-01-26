@@ -82,6 +82,7 @@ MonoBehaviour:
   _screenHold: {fileID: 0}
   _screenTouchUp: {fileID: 0}
   _screenWithNoInput: {fileID: 0}
+  _screenTouchUpAfterHold: {fileID: 0}
 --- !u!1 &7875372757279728648
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +284,9 @@ GameObject:
   - component: {fileID: 7875372757471391787}
   - component: {fileID: 7875372757471391786}
   - component: {fileID: 7875372757471391789}
+  - component: {fileID: 445243949726206377}
+  - component: {fileID: 6614883913842892252}
+  - component: {fileID: 980002289229229866}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -369,6 +373,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _smoothTime: 4
   _target: {fileID: 7875372757279728648}
+--- !u!114 &445243949726206377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875372757471391785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a7958be2fc448a6912e82cee2d642c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zoomValue: 0
+  _zoomTime: 0
+--- !u!114 &6614883913842892252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875372757471391785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c5affa9b6754064b95e497a892e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 142dc459bdd894f40a1e5b763164bf0f, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 445243949726206377}
+        m_MethodName: ZoomInCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &980002289229229866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875372757471391785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c5affa9b6754064b95e497a892e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 478e6f389bec44fec8e2cc1f7507fa60, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 445243949726206377}
+        m_MethodName: ZoomOutCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &7875372758492422869
 GameObject:
   m_ObjectHideFlags: 0

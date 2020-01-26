@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using DigitalRuby.Tween;
 using UnityEngine;
 
 public class TimeScaleController
@@ -37,5 +39,25 @@ public class TimeScaleController
 
         Time.timeScale = end;
         Time.fixedDeltaTime = end * 0.02f;
+    }
+    
+    public void SlowDownTime(float end, float time)
+    {
+
+        Action<ITween<float>> CameraZoomOut = t =>
+        {
+           Time.timeScale = t.CurrentValue;
+        };
+        TweenFactory.Tween("SlowDown", TimeScale, end, time, TweenScaleFunctions.CubicEaseInOut, CameraZoomOut);
+    }
+    
+    public void NormalTime(float time)
+    {
+
+        Action<ITween<float>> CameraZoomOut = t =>
+        {
+            Time.timeScale = t.CurrentValue;
+        };
+        TweenFactory.Tween("SlowDown", Time.timeScale, 1, time, TweenScaleFunctions.CubicEaseInOut, CameraZoomOut);
     }
 }

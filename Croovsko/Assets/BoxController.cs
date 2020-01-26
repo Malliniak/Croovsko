@@ -14,7 +14,8 @@ public class BoxController : MonoBehaviour
         if (other.gameObject.GetComponent<LeftRightController>())
         {
             Debug.Log("Destroy me noww");
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(-other.gameObject.GetComponent<Rigidbody2D>().velocity.normalized * 10f, ForceMode2D.Impulse);
+            var randomX = Random.Range(-1f, 1f);
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(randomX, 1) * 5f, ForceMode2D.Impulse);
             DestroyWithCoins();
         }
     }
