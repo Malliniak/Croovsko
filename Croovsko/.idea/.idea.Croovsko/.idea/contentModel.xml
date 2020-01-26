@@ -91,6 +91,7 @@
             </e>
           </e>
         </e>
+        <e p="PlayerController.cs" t="Include" />
         <e p="SceneController.cs" t="Include" />
         <e p="Slingshot_prototype" t="Include">
           <e p="SpringMovementController.cs" t="Include" />
