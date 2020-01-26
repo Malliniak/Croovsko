@@ -20,8 +20,11 @@ public class LeftRightController : MonoBehaviour
     private TimeScaleController _timeScaleController;
     private bool _alreadyHolding = false;
 
+    private BulletSpawner _bulletSpawner;
+
     private void Awake()
     {
+        _bulletSpawner = GetComponentInChildren<BulletSpawner>();
         _screenSizeProvider = new ScreenSizeProvider();
         _timeScaleController = new TimeScaleController();
         _rb2D = GetComponent<Rigidbody2D>();
@@ -63,6 +66,7 @@ public class LeftRightController : MonoBehaviour
     {
         _rb2D.velocity = new Vector2(0, 0);
         _rb2D.AddForce(_forceDirection, ForceMode2D.Impulse);
+        _bulletSpawner.Shoot(-_forceDirection);
     }
 
     public void JoystickControl()

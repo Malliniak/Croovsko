@@ -64,6 +64,8 @@
           </e>
         </e>
         <e p="BoxController.cs" t="Include" />
+        <e p="Bullet.cs" t="Include" />
+        <e p="BulletSpawner.cs" t="Include" />
         <e p="CameraZoom.cs" t="Include" />
         <e p="CoinController.cs" t="Include" />
         <e p="CoinDestroyer.cs" t="Include" />
@@ -91,7 +93,7 @@
             </e>
           </e>
         </e>
-        <e p="PlayerController.cs" t="Include" />
+        <e p="PlayerParticleEmitter.cs" t="Include" />
         <e p="SceneController.cs" t="Include" />
         <e p="Slingshot_prototype" t="Include">
           <e p="SpringMovementController.cs" t="Include" />

@@ -1,18 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody2D _rigidbody;
+    [SerializeField] private float speed;
+    public Vector2 _direction;
+
+    private void Awake()
     {
-        
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddForce(Vector3 force)
     {
-        
+        transform.LookAt2d(force);
+        _rigidbody.AddForce(force * speed, ForceMode2D.Impulse);
     }
 }
