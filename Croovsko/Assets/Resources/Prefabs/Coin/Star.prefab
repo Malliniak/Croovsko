@@ -70,8 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e564adfa9f1b45b2b9162c20bc1cfaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountToAdd: 5
-  PointsRuntimeVariable: {fileID: 11400000, guid: a4f3709e923424a84815e26665fcf6ee,
+  amountToAdd: 1
+  PointsRuntimeVariable: {fileID: 11400000, guid: 1023dcc4019df44b6a83e7a04c2cb1f7,
     type: 2}
 --- !u!1 &1363204250743331878
 GameObject:
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 7418111767137346330}
   - component: {fileID: 4475968691341883983}
   m_Layer: 8
-  m_Name: Coin
+  m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,7 +255,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c499ada49219645ae98706d1e0e6dcc4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8dabd210e02f24e6fa04bb5dc1029a61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

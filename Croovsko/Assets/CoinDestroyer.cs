@@ -15,7 +15,6 @@ public class CoinDestroyer : MonoBehaviour
     private void Start()
     {
         StartCoroutine(nameof(ColliderDisable));
-        AssetLoader.GetAssetFile(out PointsRuntimeVariable, "PointsRuntime");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
