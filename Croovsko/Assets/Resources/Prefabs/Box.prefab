@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsToSpawn: 5
-  coinPrefab: {fileID: 3153247031331567018, guid: 1b042eca9e5d247209cc892774bb487b,
+  coinPrefab: {fileID: 2601325471981548847, guid: 8d3228e3988694fcabaedb418379e2c3,
     type: 3}
 --- !u!198 &5449191216843417983
 ParticleSystem:
