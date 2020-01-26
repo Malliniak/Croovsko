@@ -34,11 +34,5 @@ public class CoinController : MonoBehaviour
             _shouldMoveToPlayer = true;
         }
     }
-
-    private void FixedUpdate()
-    {
-        if (!_shouldMoveToPlayer)
-            return;
-        _rigidbody.velocity = (_player.transform.position - transform.position).normalized * 1.2f; 
-    }
+    
 }

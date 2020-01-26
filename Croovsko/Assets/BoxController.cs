@@ -8,7 +8,7 @@ public class BoxController : MonoBehaviour
 {
 
     public int coinsToSpawn = 5;
-    public CoinController coinPrefab;
+    public GameObject coinPrefab;
 
     private ParticleSystem _particle;
 
@@ -22,7 +22,7 @@ public class BoxController : MonoBehaviour
         if (other.gameObject.GetComponent<LeftRightController>())
         {
             var randomX = Random.Range(-1f, 1f);
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(randomX, 1) * 5f, ForceMode2D.Impulse);
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(randomX, 1) * 10f, ForceMode2D.Impulse);
             DestroyWithCoins();
         }
     }
@@ -34,9 +34,11 @@ public class BoxController : MonoBehaviour
         {
             var coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
             var randomX = Random.Range(-1f, 1f);
-            coin.AddForce(new Vector2(randomX, 1) * 10f);
+            var randomY = Random.Range(0.5f, 1.5f);
+            coin.GetComponentInChildren<CoinController>().AddForce(new Vector2(randomX, randomY) * 10f);
         }
-        _particle.Emit(18);
+
+        _particle.Play();
         StartCoroutine(nameof(DestroyDelay));
     }
 
