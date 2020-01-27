@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 8976568712598855582}
   - component: {fileID: 5112861588644129997}
   - component: {fileID: 7331013325048428540}
-  m_Layer: 12
-  m_Name: BulletTestPrefab
+  m_Layer: 11
+  m_Name: BulletEnemyTestPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 46
   m_Sprite: {fileID: 21300000, guid: 90bce947d3ba24c8492b0a493a60918b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.41037738, b: 0.44396347, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc3eaa6817514b9aac1055380accab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
   _direction: {x: 0, y: 0}
 --- !u!50 &1034224628381868698
 Rigidbody2D:
