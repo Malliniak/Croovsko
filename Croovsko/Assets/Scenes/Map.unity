@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a373cdca2584102a0713f9bd3903c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldUseTouches: 0
   _mousePosition: {fileID: 0}
   _screenHold: {fileID: 0}
   _screenTouchUp: {fileID: 0}
@@ -1702,6 +1703,12 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 36
       objectReference: {fileID: 0}
+    - target: {fileID: 5448658357369945756, guid: 593cba43b1bed4c97975a12b423999ef,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6168083732550661486, guid: 2a5f4ea66cd274da69ce1cac19871d6e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 593cba43b1bed4c97975a12b423999ef, type: 3}
 --- !u!1001 &8720519189154932298

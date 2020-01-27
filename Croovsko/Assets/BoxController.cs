@@ -8,7 +8,7 @@ public class BoxController : MonoBehaviour
 {
 
     public int coinsToSpawn = 5;
-    public GameObject coinPrefab;
+    public CoinController coinPrefab;
 
     private ParticleSystem _particle;
 
@@ -35,7 +35,7 @@ public class BoxController : MonoBehaviour
             var coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
             var randomX = Random.Range(-1f, 1f);
             var randomY = Random.Range(0.5f, 1.5f);
-            coin.GetComponentInChildren<CoinController>().AddForce(new Vector2(randomX, randomY) * 10f);
+            coin.AddForce(new Vector2(randomX, randomY) * 10f);
         }
 
         _particle.Play();
