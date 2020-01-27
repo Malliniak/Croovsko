@@ -45,10 +45,12 @@
           <e p="Movement" t="Include">
             <e p="MonoBehaviours" t="Include">
               <e p="LeftRightController.cs" t="Include" />
+              <e p="MonkMovementController.cs" t="Include" />
             </e>
           </e>
           <e p="State" t="Include">
             <e p="GameState.cs" t="Include" />
+            <e p="PlayerDetector.cs" t="Include" />
           </e>
           <e p="Variables" t="Include">
             <e p="BaseVariable.cs" t="Include" />
