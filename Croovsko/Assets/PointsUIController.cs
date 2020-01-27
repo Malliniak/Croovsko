@@ -7,7 +7,7 @@ using UnityEngine;
 public class PointsUIController : MonoBehaviour
 {
     private TextMeshProUGUI _text;
-    private IntVariable _pointsRuntime;
+    [SerializeField] private IntVariable _pointsRuntime;
     private int previousValue;
 
     private void Awake()
@@ -17,7 +17,6 @@ public class PointsUIController : MonoBehaviour
 
     private void Start()
     {
-        AssetLoader.GetAssetFile(out _pointsRuntime, $"PointsRuntime");
         previousValue = _pointsRuntime._value;
         _text.text = $"{previousValue}";
     }
