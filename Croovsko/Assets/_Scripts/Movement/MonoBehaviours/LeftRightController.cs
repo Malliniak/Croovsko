@@ -39,7 +39,7 @@ public class LeftRightController : MonoBehaviour
         _timeScaleController.NormalTime(0.05f);
         _joystickControls = false;
         Debug.Log("ADDING AFTER JOYSTICK");
-        AddForceToPlayer();
+        AddForceToPlayer(2f);
         
         _joystick.background.gameObject.SetActive(false);
     }
@@ -52,7 +52,7 @@ public class LeftRightController : MonoBehaviour
             Debug.Log("ADDING NORMAL");
             _forceDirection.x = _mousePosition._value.x > _screenSizeProvider.ScreenWidth / 2 ? 3 : -3;
             _forceDirection.y = 6;
-            AddForceToPlayer();
+            AddForceToPlayer(1.2f);
         }
     }
 
@@ -62,10 +62,10 @@ public class LeftRightController : MonoBehaviour
         _timeScaleController.SetTimeScale(1f);
     }
 
-    private void AddForceToPlayer()
+    private void AddForceToPlayer(float speed)
     {
         _rb2D.velocity = new Vector2(0, 0);
-        _rb2D.AddForce(_forceDirection, ForceMode2D.Impulse);
+        _rb2D.AddForce(_forceDirection * speed, ForceMode2D.Impulse);
         _bulletSpawner.Shoot(-_forceDirection);
     }
 

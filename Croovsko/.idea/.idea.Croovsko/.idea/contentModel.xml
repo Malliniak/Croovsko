@@ -69,6 +69,7 @@
         <e p="CameraZoom.cs" t="Include" />
         <e p="CoinController.cs" t="Include" />
         <e p="CoinDestroyer.cs" t="Include" />
+        <e p="EndLevel.cs" t="Include" />
         <e p="IntTextController.cs" t="Include" />
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
@@ -94,10 +95,20 @@
           </e>
         </e>
         <e p="PlayerParticleEmitter.cs" t="Include" />
+        <e p="PNGs" t="Include">
+          <e p="Betsy" t="Include">
+            <e p="BPreplay" t="Include">
+              <e p="SIL Open Font License.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PointsUIController.cs" t="Include" />
         <e p="SceneController.cs" t="Include" />
         <e p="Slingshot_prototype" t="Include">
           <e p="SpringMovementController.cs" t="Include" />
         </e>
+        <e p="StarCollector.cs" t="Include" />
+        <e p="StarsUIController.cs" t="Include" />
         <e p="StringTextController.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
