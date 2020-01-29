@@ -1,4 +1,14 @@
-﻿using DefaultNamespace;
+﻿//
+//  Square
+//
+//  Created by Krzysztof Maliński, Adam Kolinski, 
+// Damian Klabuhn, Mikolaj Mikolajczak
+//  
+// Code inspired by Croovsko, project by Krzysztof Malinski
+// 
+
+
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

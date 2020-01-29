@@ -1,4 +1,14 @@
-﻿using _Scripts.Helpers;
+﻿//
+//  Square
+//
+//  Created by Krzysztof Maliński, Adam Kolinski, 
+// Damian Klabuhn, Mikolaj Mikolajczak
+//  
+// Code inspired by Croovsko, project by Krzysztof Malinski
+// 
+
+
+using _Scripts.Helpers;
 using DefaultNamespace;
 using UnityEngine;
 

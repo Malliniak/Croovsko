@@ -1,4 +1,14 @@
-﻿using UnityEditor;
+﻿//
+//  Square
+//
+//  Created by Krzysztof Maliński, Adam Kolinski, 
+// Damian Klabuhn, Mikolaj Mikolajczak
+//  
+// Code inspired by Croovsko, project by Krzysztof Malinski
+// 
+
+
+using UnityEditor;
 using UnityEngine;
 
 public abstract class ReferencePropertyDrawer : PropertyDrawer

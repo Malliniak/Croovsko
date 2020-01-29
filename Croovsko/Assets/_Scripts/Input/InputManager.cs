@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿//
+//  Square
+//
+//  Created by Krzysztof Maliński, Adam Kolinski, 
+// Damian Klabuhn, Mikolaj Mikolajczak
+//  
+// Code inspired by Croovsko, project by Krzysztof Malinski
+// 
+
+
+using System.Collections;
 using _Scripts.Helpers;
 using UnityEngine;
 
