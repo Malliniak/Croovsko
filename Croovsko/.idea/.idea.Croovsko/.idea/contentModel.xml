@@ -11,11 +11,12 @@
           <e p="Camera" t="Include">
             <e p="CameraFollow.cs" t="Include" />
           </e>
+          <e p="Collectibles" t="Include">
+            <e p="CoinController.cs" t="Include" />
+            <e p="CoinDestroyer.cs" t="Include" />
+          </e>
           <e p="Editor" t="Include">
             <e p="CustomPropertyDrawer.cs" t="Include" />
-            <e p="FloatReferenceDrawer.cs" t="Include" />
-            <e p="IntPropertyDrawer.cs" t="Include" />
-            <e p="StringPropertyDrawer.cs" t="Include" />
             <e p="Vector2PropertyDrawer.cs" t="Include" />
           </e>
           <e p="Events" t="Include">
@@ -25,54 +26,34 @@
           <e p="Helpers" t="Include">
             <e p="AssetLoader.cs" t="Include" />
             <e p="ExtensionMethods.cs" t="Include" />
-            <e p="Remap.cs" t="Include" />
             <e p="ScreenSizeProvider.cs" t="Include" />
             <e p="TimeScaleController.cs" t="Include" />
           </e>
           <e p="Input" t="Include">
             <e p="InputManager.cs" t="Include" />
           </e>
-          <e p="Levels" t="Include">
-            <e p="LevelManager.cs" t="Include" />
-            <e p="LevelState.cs" t="Include" />
+          <e p="Interfaces" t="Include">
+            <e p="IInputResponder.cs" t="Include" />
           </e>
-          <e p="Map" t="Include">
-            <e p="CurrentLevelHovering.cs" t="Include" />
-            <e p="MapCowController.cs" t="Include" />
-            <e p="MapLevelController.cs" t="Include" />
-            <e p="MapPlayButton.cs" t="Include" />
+          <e p="Levels" t="Include">
+            <e p="EndLevel.cs" t="Include" />
           </e>
           <e p="Movement" t="Include">
             <e p="MonoBehaviours" t="Include">
               <e p="LeftRightController.cs" t="Include" />
-              <e p="MonkMovementController.cs" t="Include" />
             </e>
           </e>
-          <e p="State" t="Include">
-            <e p="GameState.cs" t="Include" />
-            <e p="PlayerDetector.cs" t="Include" />
+          <e p="Shooting" t="Include">
+            <e p="Bullet.cs" t="Include" />
+            <e p="BulletSpawner.cs" t="Include" />
           </e>
           <e p="Variables" t="Include">
             <e p="BaseVariable.cs" t="Include" />
-            <e p="FloatReference.cs" t="Include" />
-            <e p="FloatVariable.cs" t="Include" />
-            <e p="IntReference.cs" t="Include" />
-            <e p="IntVariable.cs" t="Include" />
             <e p="Reference.cs" t="Include" />
-            <e p="StringReference.cs" t="Include" />
-            <e p="StringVariable.cs" t="Include" />
             <e p="Vector2Reference.cs" t="Include" />
             <e p="Vector2Variable.cs" t="Include" />
           </e>
         </e>
-        <e p="BoxController.cs" t="Include" />
-        <e p="Bullet.cs" t="Include" />
-        <e p="BulletSpawner.cs" t="Include" />
-        <e p="CameraZoom.cs" t="Include" />
-        <e p="CoinController.cs" t="Include" />
-        <e p="CoinDestroyer.cs" t="Include" />
-        <e p="EndLevel.cs" t="Include" />
-        <e p="IntTextController.cs" t="Include" />
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
             <e p="JoystickPlayerExample.cs" t="Include" />
@@ -96,23 +77,9 @@
             </e>
           </e>
         </e>
-        <e p="PlayerParticleEmitter.cs" t="Include" />
-        <e p="PNGs" t="Include">
-          <e p="Betsy" t="Include">
-            <e p="BPreplay" t="Include">
-              <e p="SIL Open Font License.txt" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="PointsUIController.cs" t="Include" />
-        <e p="SceneController.cs" t="Include" />
         <e p="Slingshot_prototype" t="Include">
           <e p="SpringMovementController.cs" t="Include" />
         </e>
-        <e p="Spikes.cs" t="Include" />
-        <e p="StarCollector.cs" t="Include" />
-        <e p="StarsUIController.cs" t="Include" />
-        <e p="StringTextController.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />

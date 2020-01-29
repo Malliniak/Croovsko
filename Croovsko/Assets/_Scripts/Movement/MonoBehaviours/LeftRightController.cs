@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections;
-using _Scripts.Helpers;
+﻿using _Scripts.Helpers;
+using DefaultNamespace;
 using UnityEngine;
 
-public class LeftRightController : MonoBehaviour
+public class LeftRightController : MonoBehaviour, IInputResponder
 {
+    private bool _alreadyHolding;
+
+    private BulletSpawner _bulletSpawner;
     [SerializeField] private Vector2 _forceDirection = new Vector2(3f, 6f);
     [Header("Joystick and SloMo")] private float _holdTimer;
     [SerializeField] private DynamicJoystick _joystick;
@@ -18,20 +20,6 @@ public class LeftRightController : MonoBehaviour
     [SerializeField] private int _slowMotionForce = 10;
     [SerializeField] [Range(0.1f, 1f)] private float _slowMotionValue;
     private TimeScaleController _timeScaleController;
-    private bool _alreadyHolding = false;
-
-    private BulletSpawner _bulletSpawner;
-
-    private void Awake()
-    {
-        _bulletSpawner = GetComponentInChildren<BulletSpawner>();
-        _screenSizeProvider = new ScreenSizeProvider();
-        _timeScaleController = new TimeScaleController();
-        _rb2D = GetComponent<Rigidbody2D>();
-
-        if (_mousePosition) return;
-        AssetLoader.GetAssetFile(out _mousePosition, "MousePosition");
-    }
 
     public void AfterHoldTouch()
     {
@@ -40,11 +28,11 @@ public class LeftRightController : MonoBehaviour
         _joystickControls = false;
         Debug.Log("ADDING AFTER JOYSTICK");
         AddForceToPlayer(2f);
-        
+
         _joystick.background.gameObject.SetActive(false);
     }
 
-    public void JumpOnTouch()
+    public void OnTouchUp()
     {
         _timeScaleController.NormalTime(0.05f);
         if (_joystickControls == false)
@@ -62,16 +50,9 @@ public class LeftRightController : MonoBehaviour
         _timeScaleController.SetTimeScale(1f);
     }
 
-    private void AddForceToPlayer(float speed)
+    public void OnHold()
     {
-        _rb2D.velocity = new Vector2(0, 0);
-        _rb2D.AddForce(_forceDirection * speed, ForceMode2D.Impulse);
-        _bulletSpawner.Shoot(-_forceDirection);
-    }
-
-    public void JoystickControl()
-    {
-        if(!_alreadyHolding)
+        if (!_alreadyHolding)
             _timeScaleController.SlowDownTime(_slowMotionValue, 0.3f);
         _alreadyHolding = true;
         Vector3 lookVec = new Vector3(_joystick.input.x, _joystick.input.y, 0);
@@ -80,5 +61,23 @@ public class LeftRightController : MonoBehaviour
 
         _joystick.background.gameObject.SetActive(true);
         _joystickControls = true;
+    }
+
+    private void Awake()
+    {
+        _bulletSpawner = GetComponentInChildren<BulletSpawner>();
+        _screenSizeProvider = new ScreenSizeProvider();
+        _timeScaleController = new TimeScaleController();
+        _rb2D = GetComponent<Rigidbody2D>();
+
+        if (_mousePosition) return;
+        AssetLoader.GetAssetFile(out _mousePosition, "MousePosition");
+    }
+
+    private void AddForceToPlayer(float speed)
+    {
+        _rb2D.velocity = new Vector2(0, 0);
+        _rb2D.AddForce(_forceDirection * speed, ForceMode2D.Impulse);
+        _bulletSpawner.Shoot(-_forceDirection);
     }
 }

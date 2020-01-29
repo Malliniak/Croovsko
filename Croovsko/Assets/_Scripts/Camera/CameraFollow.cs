@@ -11,7 +11,6 @@ public class CameraFollow : MonoBehaviour
     public GameObject _target;
     private Vector3 _targetPosition;
 
-    // Update is called once per frame
     private void Start()
     {
         _isTargetNull = _target == null;
@@ -27,7 +26,7 @@ public class CameraFollow : MonoBehaviour
 
         Vector3 position = _target.transform.position;
         _targetPosition = new Vector3(position.x, position.y, -10f);
-        transform.position = Vector3.SmoothDamp(transform.position, _targetPosition, ref _refVelocity, 
+        transform.position = Vector3.SmoothDamp(transform.position, _targetPosition, ref _refVelocity,
             _smoothTime * Time.deltaTime);
     }
 }

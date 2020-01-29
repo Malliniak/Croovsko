@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 namespace _Scripts.Helpers
@@ -8,18 +7,15 @@ namespace _Scripts.Helpers
         public static void GetAssetFile<T>(out T asset, string filter = "DefaultAsset l:noLabel t:noType")
             where T : ScriptableObject
         {
-            var _scriptabels = Resources.LoadAll("Data/");
-            foreach (var VARIABLE in _scriptabels)
-            {
-                //Debug.LogWarning($"Lookinig for: {filter}, current: {VARIABLE.name}");
-                if (VARIABLE.name.Equals(filter))
+            Object[] scriptabels = Resources.LoadAll("Data/");
+            foreach (Object variable in scriptabels)
+                if (variable.name.Equals(filter))
                 {
-                    asset = VARIABLE as T;
+                    asset = variable as T;
                     return;
                 }
-            }
+
             asset = null;
-            //Debug.LogWarning("NO ASSET :( ");
         }
     }
 }

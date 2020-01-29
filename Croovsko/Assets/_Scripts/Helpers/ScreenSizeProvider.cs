@@ -16,4 +16,9 @@ public class ScreenSizeProvider
     public float ScreenHeight { get; }
     public float ScreenHalfWidth { get; }
     public float ScreenHalfHeight { get; }
+
+    ~ScreenSizeProvider()
+    {
+        Debug.Log("Screen Size Provider, destructed");
+    }
 }

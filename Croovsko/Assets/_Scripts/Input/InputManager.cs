@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public bool shouldUseTouches;
+    public enum InputType
+    {
+        Touches,
+        Mouse
+    }
+
     [SerializeField] private Vector2Variable _mousePosition;
 
     public GameEvent _screenHold;
     public GameEvent _screenTouchUp;
-    public GameEvent _screenWithNoInput;
     public GameEvent _screenTouchUpAfterHold;
+    public GameEvent _screenWithNoInput;
 
-    private bool isHolding = false;
+    private bool _isHolding;
+
+    public InputType _shouldUseTouches;
 
     private void Awake()
     {
@@ -25,58 +32,47 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        if(!shouldUseTouches)
+        if (_shouldUseTouches == InputType.Mouse)
             MouseInput();
-        if(shouldUseTouches)
+        if (_shouldUseTouches == InputType.Touches)
             TouchInput();
     }
 
     private IEnumerator TouchHoldCoroutine(Touch touch)
     {
         yield return new WaitForSeconds(0.25f);
-        if (touch.phase != TouchPhase.Ended)
-        {
-            isHolding = true;
-        }
+        if (touch.phase != TouchPhase.Ended) _isHolding = true;
     }
 
     private IEnumerator MouseHoldCoroutine()
     {
         yield return new WaitForSeconds(0.25f);
-        if (Input.GetMouseButton(0))
-        {
-            isHolding = true;
-        }
+        if (Input.GetMouseButton(0)) _isHolding = true;
     }
 
     private void MouseInput()
     {
-        if (!Input.GetMouseButton(0))
-        {
-            _screenWithNoInput.Raise();
-        }
+        if (!Input.GetMouseButton(0)) _screenWithNoInput.Raise();
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartCoroutine(nameof(MouseHoldCoroutine));
-        }
+        if (Input.GetMouseButtonDown(0)) StartCoroutine(nameof(MouseHoldCoroutine));
 
         if (Input.GetMouseButtonUp(0))
         {
             StopCoroutine(nameof(MouseHoldCoroutine));
-            if (isHolding)
+            if (_isHolding)
             {
                 print("Touch up with hold");
-                isHolding = false;
+                _isHolding = false;
                 _screenTouchUpAfterHold.Raise();
                 return;
             }
+
             print("Touch up without hold");
             _mousePosition.SetValue(Input.mousePosition);
             _screenTouchUp.Raise();
         }
 
-        if (isHolding)
+        if (_isHolding)
         {
             print("HOLD");
             _screenHold.Raise();
@@ -90,29 +86,24 @@ public class InputManager : MonoBehaviour
             _screenWithNoInput.Raise();
             return;
         }
-        
+
         Touch firstTouch = Input.GetTouch(0);
-        
-        if (firstTouch.phase == TouchPhase.Began)
-        {
-            StartCoroutine(nameof(TouchHoldCoroutine), firstTouch);
-        }
+
+        if (firstTouch.phase == TouchPhase.Began) StartCoroutine(nameof(TouchHoldCoroutine), firstTouch);
         if (firstTouch.phase == TouchPhase.Ended)
         {
             StopCoroutine(nameof(TouchHoldCoroutine));
-            if (isHolding)
+            if (_isHolding)
             {
-                isHolding = false;
+                _isHolding = false;
                 _screenTouchUpAfterHold.Raise();
                 return;
             }
+
             _mousePosition.SetValue(firstTouch.position);
             _screenTouchUp.Raise();
         }
 
-        if (isHolding)
-        {
-            _screenHold.Raise();
-        }
+        if (_isHolding) _screenHold.Raise();
     }
 }

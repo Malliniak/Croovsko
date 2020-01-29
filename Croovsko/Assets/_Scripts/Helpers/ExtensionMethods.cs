@@ -8,8 +8,6 @@ public static class ExtensionMethods
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + 90f);
     }
 
-    //THIS WORKS, DO NOT TOUCH!
-
     public static void LookAt2d(this Transform transform, Vector3 lookVec, float lerpTime)
     {
         float rotZ = Mathf.Atan2(lookVec.y, lookVec.x) * Mathf.Rad2Deg;
