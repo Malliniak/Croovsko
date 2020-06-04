@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using _Scripts.Helpers;
+using DG.Tweening;
 using UnityEngine;
 
 public class LeftRightController : MonoBehaviour
 {
-    [SerializeField] private Vector2 _forceDirection = new Vector2(3f, 6f);
+    [SerializeField] public Vector2 _forceDirection = new Vector2(3f, 6f);
     [Header("Joystick and SloMo")] private float _holdTimer;
     [SerializeField] private DynamicJoystick _joystick;
 
@@ -22,37 +23,74 @@ public class LeftRightController : MonoBehaviour
 
     private BulletSpawner _bulletSpawner;
 
+    [SerializeField] public GameEvent _MilkShootEvent;
+    public bool _shouldLookToRotation = false;
+
+    private float flySpeed = 600f;
+    [SerializeField] private ParticleSystem _pressurePArticleSystem;
+
+    private bool _canShoot = true;
+    
     private void Awake()
     {
         _bulletSpawner = GetComponentInChildren<BulletSpawner>();
         _screenSizeProvider = new ScreenSizeProvider();
         _timeScaleController = new TimeScaleController();
         _rb2D = GetComponent<Rigidbody2D>();
+        _rb2D.gravityScale = 0;
 
         if (_mousePosition) return;
         AssetLoader.GetAssetFile(out _mousePosition, "MousePosition");
     }
 
+    public void BlockShoot()
+    {
+        _canShoot = false;
+    }
+
+    public void UnlockShoot()
+    {
+        _canShoot = true;  
+    }
+
+    private void Update() {
+        if (_shouldLookToRotation)
+        {
+            Vector2 v = _rb2D.velocity;
+            var angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg - 90f;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+    }
+
     public void AfterHoldTouch()
     {
+        _joystick.background.gameObject.SetActive(false);
         _alreadyHolding = false;
         _timeScaleController.NormalTime(0.05f);
         _joystickControls = false;
-        Debug.Log("ADDING AFTER JOYSTICK");
-        AddForceToPlayer(2f);
         
-        _joystick.background.gameObject.SetActive(false);
+        if (!_canShoot)
+            return;
+
+        Debug.Log("ADDING AFTER JOYSTICK");
+        AddForceToPlayer(2.5f);
+        
+        _MilkShootEvent.Raise();
     }
 
     public void JumpOnTouch()
     {
+        _rb2D.gravityScale = 2;
+        if (!_canShoot)
+            return;
         _timeScaleController.NormalTime(0.05f);
         if (_joystickControls == false)
         {
             Debug.Log("ADDING NORMAL");
             _forceDirection.x = _mousePosition._value.x > _screenSizeProvider.ScreenWidth / 2 ? 3 : -3;
             _forceDirection.y = 6;
-            AddForceToPlayer(1.2f);
+            AddForceToPlayer(1.9f);
+            _MilkShootEvent.Raise();
         }
     }
 
@@ -71,6 +109,8 @@ public class LeftRightController : MonoBehaviour
 
     public void JoystickControl()
     {
+        if (!_canShoot)
+            return;
         if(!_alreadyHolding)
             _timeScaleController.SlowDownTime(_slowMotionValue, 0.3f);
         _alreadyHolding = true;
@@ -80,5 +120,38 @@ public class LeftRightController : MonoBehaviour
 
         _joystick.background.gameObject.SetActive(true);
         _joystickControls = true;
+    }
+
+    public void PressureRelease()
+    {
+        Debug.Log("PressureRelease");
+        _rb2D.Sleep();
+        _rb2D.WakeUp();
+        _rb2D.AddRelativeForce (Vector2.up * flySpeed, ForceMode2D.Force);
+        _rb2D.gravityScale = 0;
+        _rb2D.mass = 0.1f;
+        _rb2D.drag = 0;
+        _rb2D.sharedMaterial.bounciness = 3f;
+        _rb2D.freezeRotation = false;
+        _shouldLookToRotation = true;
+        _pressurePArticleSystem.Play();
+        StartCoroutine(EnableMass());
+    }
+
+    IEnumerator EnableMass()
+    {
+        yield return new WaitForSeconds(3f);
+        _shouldLookToRotation = false;
+        _rb2D.drag = 1;
+        _rb2D.mass = 1;
+        _rb2D.gravityScale = 2;
+        _rb2D.freezeRotation = true;
+        _rb2D.sharedMaterial.bounciness = 0.5f;
+        _pressurePArticleSystem.Stop();
+    }
+
+    private void OnDisable()
+    {
+        _rb2D.sharedMaterial.bounciness = 0.5f;
     }
 }
